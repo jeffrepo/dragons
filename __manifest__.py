@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Engatel",
+    'name': "Dragons",
 
-    'summary': """ Funcionalidades extras para ENGATEL """,
+    'summary': """ Funcionalidades extras para Dragons """,
 
     'description': """
         Funcionalidades extras para ENGATEL
@@ -17,6 +17,7 @@
     'depends': ['purchase'],
 
     'data': [
+        'security/dragons_security.xml',
         'views/purchase_views.xml',
     ],
     'license': 'LGPL-3',
