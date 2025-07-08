@@ -9,7 +9,6 @@ class PurchaseOrder(models.Model):
 
     tipo_compra = fields.Selection([ ('admin', 'Compra administrativa'),('proyecto', 'Compra proyecto')], string='Tipo de compra')
     estado_autorizado = fields.Selection([('esperando_solicitud_aut','Esperando solicitud autorizacion'),('solicitud_aut','Solicitar autorizacion') ,('admin', 'Autorizado admin'),('aut_pago', 'Autorizacion pago'),('pago_autorizado','Pago autorizad')],string='Estado autorizado')
-    autorizado_admin = fields.Boolean('Autorizado administración')
 
     @api.onchange('tipo_compra')
     def _onchange_tipo_compra(self):
@@ -56,5 +55,20 @@ class PurchaseOrder(models.Model):
                 if orden.estado_autorizado != 'admin':
                     logging.warning('retornar error')
                     raise UserError('Flujo de aprobación incompleto')
+            elif orden.tipo_compra == 'proyecto':
+                if orden.amount_total <= 10000:
+                    group = self.env.ref('dragons.group_dragon_gestor_proyecto')
+                    users_in_group = group.users
+                    if self.env.user.partner_id.id not in users_in_group.mapped('partner_id').ids:
+                        raise UserError('La compra solo puede ser validada por Gestor de proyecto')
+                elif orden.amount_total > 10000 and orden.amount_total <= 50000:
+                    group = self.env.ref('dragons.group_dragon_direccion_general')
+                    users_in_group = group.users
+                    if self.env.user.partner_id.id not in users_in_group.mapped('partner_id').ids:
+                        raise UserError('La compra solo puede ser valida por Direccion general')
+                else:
+                    pass
+            else:
+                pass
         return res
                 
