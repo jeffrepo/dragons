@@ -1,0 +1,427 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dragons
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-19 19:47+0000\n"
+"PO-Revision-Date: 2025-08-19 19:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "<span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "APPROVES"
+msgstr ""
+
+#. module: dragons
+#: model:res.groups,name:dragons.group_dragon_admin
+msgid "Administración"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Approval"
+msgstr ""
+
+#. module: dragons
+#: model:res.groups,name:dragons.group_dragon_asistente_direccion
+msgid "Asistente de Dirección"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Attached Provider Proposal"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Attached Quality Requirements"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Attached Technical Requirements"
+msgstr ""
+
+#. module: dragons
+#: model:ir.model.fields.selection,name:dragons.selection__purchase_order__estado_autorizado__aut_pago
+msgid "Autorizacion pago"
+msgstr ""
+
+#. module: dragons
+#: model:ir.model.fields.selection,name:dragons.selection__purchase_order__estado_autorizado__admin
+msgid "Autorizado admin"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.dragons_purchase_order_form
+msgid "Autorizar admin"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.dragons_purchase_order_form
+msgid "Autorizar pago"
+msgstr ""
+
+#. module: dragons
+#: model:res.groups,name:dragons.group_dragon_auxiliar
+msgid "Auxiliar administrativo"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "CONFIRMATION AND ACCEPTANCE OF THIS PURCHASE ORDER"
+msgstr ""
+
+#. module: dragons
+#: model:res.groups,name:dragons.group_dragon_caja_chica
+msgid "Caja chica"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Commercial Grade Supplier"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid ""
+"Company Name, Tax ID, Address,<br/> Contact (position), Email Address, <br/>"
+" Phone Number:"
+msgstr ""
+
+#. module: dragons
+#: model:ir.model.fields.selection,name:dragons.selection__purchase_order__tipo_compra__admin
+msgid "Compra administrativa"
+msgstr ""
+
+#. module: dragons
+#: model:ir.model.fields.selection,name:dragons.selection__purchase_order__tipo_compra__proyecto
+msgid "Compra proyecto"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Creation Date"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Currency"
+msgstr ""
+
+#. module: dragons
+#: model:ir.actions.report,name:dragons.action_custom_purchase_order_format
+msgid "Custom Purchase Order Format"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Customs Broker:"
+msgstr ""
+
+#. module: dragons
+#: model:res.groups,name:dragons.group_dragon_cxp
+msgid "CxP"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "DA"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "DDN/DDO"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "DG"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "DL"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "DN/DO"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "DRAGONS DE VERACRUZ S.A. DE C.V.<br/>INGENIERIA APLICADA"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "DRAGONS DE VERACRUZ, S.A. DE C.V. BILLING INFORMATION"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Datos bancarios:"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Delivery Time / <br/>Execution Period:"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Description"
+msgstr ""
+
+#. module: dragons
+#: model:res.groups,name:dragons.group_dragon_direccion_general
+msgid "Direccion general"
+msgstr ""
+
+#. module: dragons
+#: model:ir.model.fields.selection,name:dragons.selection__purchase_order__estado_autorizado__esperando_solicitud_aut
+msgid "Esperando solicitud autorizacion"
+msgstr ""
+
+#. module: dragons
+#: model:ir.model.fields,field_description:dragons.field_purchase_order__estado_autorizado
+msgid "Estado autorizado"
+msgstr ""
+
+#. module: dragons
+#: model:res.groups,comment:dragons.group_dragon_admin
+#: model:res.groups,comment:dragons.group_dragon_auxiliar
+#: model:res.groups,comment:dragons.group_dragon_caja_chica
+#: model:res.groups,comment:dragons.group_dragon_cxp
+#: model:res.groups,comment:dragons.group_dragon_direccion_general
+#: model:res.groups,comment:dragons.group_dragon_gestor_proyecto
+#: model:res.groups,comment:dragons.group_dragon_mantenimiento
+#: model:res.groups,comment:dragons.group_dragon_sistemas
+msgid "Flujo de aprobación compra"
+msgstr ""
+
+#. module: dragons
+#: model:res.groups,comment:dragons.group_dragon_asistente_direccion
+msgid "Flujo de aprobación compra."
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Format No."
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "GACN"
+msgstr ""
+
+#. module: dragons
+#: model:res.groups,name:dragons.group_dragon_gestor_proyecto
+msgid "Gestor de proyecto"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "IMPORT / DELIVERY TERMS"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "INFORMACIÓN DEL PROVEEDOR"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Incoterms:"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Item"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Logo"
+msgstr ""
+
+#. module: dragons
+#: model:res.groups,name:dragons.group_dragon_mantenimiento
+msgid "Mantenimiento"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Name, Signature and Date:"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "No se han registrado datos bancarios"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid ""
+"Nombre de la compañía,<br/> RFC / Tax Identification Number,<br/> Dirección,"
+" Contacto (puesto),<br/>Dirección de correo electrónico, Número de teléfono:"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "OBSERVATIONS"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "PREPARES"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "PURCHASE ORDER"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Page"
+msgstr ""
+
+#. module: dragons
+#: model:ir.model.fields.selection,name:dragons.selection__purchase_order__estado_autorizado__pago_autorizado
+msgid "Pago autorizad"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Part Number<br/>or Service"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Payment Terms:"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Price"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Project / Procedure No.:"
+msgstr ""
+
+#. module: dragons
+#: model:ir.model,name:dragons.model_purchase_order
+msgid "Purchase Order"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Purchase Order No.:"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Quality<br/>Category"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Quantity"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "REVIEWS"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Requester"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Responsible"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Revision #:"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Shipping Instructions:"
+msgstr ""
+
+#. module: dragons
+#: model:res.groups,name:dragons.group_dragon_sistemas
+msgid "Sistemas"
+msgstr ""
+
+#. module: dragons
+#: model:ir.model.fields.selection,name:dragons.selection__purchase_order__estado_autorizado__solicitud_aut
+msgid "Solicitar autorizacion"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.dragons_purchase_order_form
+msgid "Solicitar autorización"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.dragons_purchase_order_form
+msgid "Solicitar autorizar pago"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Subtotal"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Supplier approved by Quality Assurance"
+msgstr ""
+
+#. module: dragons
+#: model:ir.model.fields,field_description:dragons.field_purchase_order__tipo_compra
+msgid "Tipo de compra"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Unit Price"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Unit of<br/>Measure"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "VERIFIES"
+msgstr ""
+
+#. module: dragons
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+msgid "Warranty"
+msgstr ""
