@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="custom_purchase_order_paperformat" model="report.paperformat">
+            <field name="name">Custom Purchase Order Format</field>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_spacing">25</field>  <!-- Esto elimina el espacio del header -->
+            <field name="dpi">90</field>
+            <field name="margin_top">28</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+        </record>
+
+        <record id="action_custom_purchase_order_format" model="ir.actions.report">
+            <field name="name">Custom Purchase Order Format</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">dragons.order_purchase_report_pdf</field>
+            <field name="report_file">dragons.order_purchase_report_pdf</field>
+            <field name="paperformat_id" ref="custom_purchase_order_paperformat"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>
