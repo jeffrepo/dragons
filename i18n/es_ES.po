@@ -17,15 +17,8 @@ msgstr ""
 
 #. module: dragons
 #: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
-msgid ""
-"<strong>DRAGONS DE VERACRUZ S.A. DE C.V.<br/>INGENIERIA APLICADA</strong>"
-msgstr ""
-"<strong>DRAGONS DE VERACRUZ S.A. DE C.V.<br/>INGENIERÍA APLICADA</strong>"
-
-#. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
-msgid "<strong>DRAGONS DE VERACRUZ, S.A. DE C.V. BILLING INFORMATION</strong>"
-msgstr "<strong>DATOS DE FACTURACIÓN DE DRAGONS DE VERACRUZ, S.A. DE C.V.</strong>"
+msgid "BILLING INFORMATION"
+msgstr "DATOS DE FACTURACIÓN"
 
 #. module: dragons
 #: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
