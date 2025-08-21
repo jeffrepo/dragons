@@ -24,9 +24,12 @@
     # always loaded
     'data': [
         'security/dragons_security.xml',
+        'security/ir_rules.xml',
         'reports/order_purchase_report_pdf_view.xml',
         'reports/report_action.xml',
         'views/purchase_views.xml',
+        'views/res_users_views.xml',
+        # 'views/stock_views.xml',
     ],
 }
 
