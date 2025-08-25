@@ -10,11 +10,21 @@
                 <field name="user_id" postion="after">
                     <field name="tipo_compra"/>
                 </field>
+                <xpath expr="//button[@name='button_confirm']" position="attributes">
+                    <attribute name="invisible">estado_autorizado not in 'direccion_general_firmado'</attribute>
+                </xpath>
                 <button name="button_confirm" position="after">
                     <button name="solicitar_autorizacion_aa" type="object" groups="dragons.group_dragon_auxiliar" invisible="estado_autorizado != 'esperando_solicitud_aut'" string="Solicitar autorización" class="oe_highlight" id="bid_confirm" data-hotkey="q"/>
                     <button name="autorizar_admin" type="object" groups="dragons.group_dragon_admin"  invisible="estado_autorizado != 'solicitud_aut'" string="Autorizar admin" class="oe_highlight" id="bid_confirm" data-hotkey="q"/>
                     <button name="solicitar_autorizar_pago" type="object" groups="dragons.group_dragon_auxiliar"  invisible="estado_autorizado != 'admin'" string="Solicitar autorizar pago" class="oe_highlight" id="bid_confirm" data-hotkey="q"/>
                     <button name="autorizar_pago" type="object" groups="dragons.group_dragon_admin"  invisible="estado_autorizado != 'aut_pago'" string="Autorizar pago" class="oe_highlight" id="bid_confirm" data-hotkey="q"/>
+
+                    <button name="firma_gestor_proyecto" type="object" groups="dragons.group_dragon_gestor_proyecto"  invisible="estado_autorizado != 'firma_gestor_proyecto'" string="Firmar" class="oe_highlight" id="bid_confirm" data-hotkey="q"/>
+                    <button name="firma_jefe_proyecto" type="object" groups="dragons.group_dragon_jefe_proyecto"  invisible="estado_autorizado != 'solicitud_firma_jefep'" string="Firmar" class="oe_highlight" id="bid_confirm" data-hotkey="q"/>
+                    <button name="firma_direccion_operaciones" type="object" groups="dragons.group_dragon_direccion_operaciones"  invisible="estado_autorizado != 'solicitud_firma_op'" string="Firmar" class="oe_highlight" id="bid_confirm" data-hotkey="q"/>
+                    <button name="firma_direccion_legal" type="object" groups="dragons.group_dragon_direccion_legal"  invisible="estado_autorizado != 'solicitud_firma_legal'" string="Firmar" class="oe_highlight" id="bid_confirm" data-hotkey="q"/>
+                    <button name="firma_direccion_admin" type="object" groups="dragons.group_dragon_direccion_admin"  invisible="estado_autorizado != 'solicitud_firma_direccion_admin'" string="Firmar" class="oe_highlight" id="bid_confirm" data-hotkey="q"/>
+                    <button name="firma_direccion_general" type="object" groups="dragons.group_dragon_direccion_general"  invisible="estado_autorizado != 'solicitud_firma_direccion_general'" string="Firmar" class="oe_highlight" id="bid_confirm" data-hotkey="q"/>
                 </button>
             </field>
         </record>

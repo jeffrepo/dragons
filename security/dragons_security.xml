@@ -45,5 +45,25 @@
         <field name="name">Direccion general</field>
         <field name="comment">Flujo de aprobación compra</field>
     </record>
+
+    <record id="group_dragon_jefe_proyecto" model="res.groups">
+        <field name="name">Jefe proyectos</field>
+        <field name="comment">Flujo de aprobación compra</field>
+    </record>
+
+    <record id="group_dragon_direccion_operaciones" model="res.groups">
+        <field name="name">Direccion operaciones</field>
+        <field name="comment">Flujo de aprobación compra</field>
+    </record>
+
+    <record id="group_dragon_direccion_legal" model="res.groups">
+        <field name="name">Direccion legal</field>
+        <field name="comment">Flujo de aprobación compra</field>
+    </record>
+
+    <record id="group_dragon_direccion_admin" model="res.groups">
+        <field name="name">Direccion administrativa</field>
+        <field name="comment">Flujo de aprobación compra</field>
+    </record>
     
 </odoo>
