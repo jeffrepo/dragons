@@ -19,7 +19,7 @@
     'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'purchase'],
+    'depends': ['base', 'purchase', 'stock'],
 
     # always loaded
     'data': [
@@ -28,8 +28,7 @@
         'reports/order_purchase_report_pdf_view.xml',
         'reports/report_action.xml',
         'views/purchase_views.xml',
-        'views/res_users_views.xml',
-        # 'views/stock_views.xml',
+        # 'views/res_users_views.xml',
     ],
 }
 

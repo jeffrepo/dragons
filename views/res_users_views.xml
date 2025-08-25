@@ -7,7 +7,7 @@
             <field name="model">res.users</field>
             <field name="inherit_id" ref="base.user_groups_view"/>
             <field name="arch" type="xml">
-                <field name="sel_groups_102_103" position="after">
+                <field name="sel_groups_49_50" position="after">
                     <field name="warehouse_ids" widget="many2many_tags"/>
                     <field name="location_ids" widget="many2many_tags"/>
                 </field>

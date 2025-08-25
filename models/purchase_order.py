@@ -2,6 +2,7 @@
 
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
+from datetime import datetime
 import logging
 
 class PurchaseOrder(models.Model):
@@ -71,4 +72,35 @@ class PurchaseOrder(models.Model):
             else:
                 pass
         return res
+    
+    def get_delivery_time_breakdown(self):
+        self.ensure_one()
+        if not self.create_date or not self.date_planned:
+            return " "
+        
+        # Convertir a zonas horarias aware si es necesario
+        create_date = self.create_date
+        date_planned = self.date_planned
+        
+        # Calcular diferencia
+        difference = date_planned - create_date
+        total_seconds = difference.total_seconds()
+        
+        # Calcular semanas, días y horas
+        total_hours = total_seconds / 3600
+        weeks = int(total_hours // (24 * 7))
+        remaining_hours = total_hours % (24 * 7)
+        days = int(remaining_hours // 24)
+        hours = int(remaining_hours % 24)
+        
+        # Construir el resultado
+        result = []
+        if weeks > 0:
+            result.append(f"{weeks} week{'s' if weeks != 1 else ''}")
+        if days > 0:
+            result.append(f"{days} day{'s' if days != 1 else ''}")
+        if hours > 0 or (weeks == 0 and days == 0):
+            result.append(f"{hours} hour{'s' if hours != 1 else ''}")
+        
+        return " ".join(result) if result else "0 hours"
                 

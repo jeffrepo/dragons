@@ -6,9 +6,9 @@
             <field name="name">Custom Purchase Order Format</field>
             <field name="format">A4</field>
             <field name="orientation">Portrait</field>
-            <field name="header_spacing">25</field>  <!-- Esto elimina el espacio del header -->
+            <field name="header_spacing">34</field>  <!-- Esto elimina el espacio del header -->
             <field name="dpi">90</field>
-            <field name="margin_top">28</field>
+            <field name="margin_top">38</field>
             <field name="margin_bottom">0</field>
             <field name="margin_left">0</field>
             <field name="margin_right">0</field>
