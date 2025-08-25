@@ -37,7 +37,8 @@
                                     </div>
                                     <div class="col-6 text-center" align="center" style="padding-top:5px;border-right:1px solid black">
                                         <p style="color:red;text-align:center; font-size:18px">
-                                            <strong>DRAGONS DE VERACRUZ S.A. DE C.V.<br/>INGENIERIA APLICADA</strong>
+                                            <!-- <strong>DRAGONS DE VERACRUZ S.A. DE C.V.<br/>INGENIERIA APLICADA</strong> -->
+                                            <strong><t t-esc="o.company_id.name"/></strong>
                                         </p>
                                         <strong>PURCHASE ORDER</strong>
                                     </div>
@@ -160,7 +161,9 @@
                             <table class="report-table">
                                 <thead>
                                     <tr>
-                                        <th colspan="2" class="header-cell"><strong>DRAGONS DE VERACRUZ, S.A. DE C.V. BILLING INFORMATION</strong></th>
+                                        <th colspan="2" class="header-cell">
+                                            <strong> <t t-esc="o.company_id.name"/> BILLING INFORMATION </strong>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
