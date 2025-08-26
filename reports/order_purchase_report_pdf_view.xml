@@ -262,13 +262,43 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="header-cell">Name, Signature and Date:</td>
-                                        <td class="data-cell"></td>
-                                        <td class="data-cell"></td>
-                                        <td class="data-cell"></td>
-                                        <td class="data-cell"></td>
-                                        <td class="data-cell"></td>
-                                        <td class="data-cell"></td>
+                                        <td class="header-cell">Name, Signature <br/> and Date:</td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.prepared_manager_date_job"/>
+                                        </td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.review_project_manager_date_job"/>
+                                        </td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.op_managment_date_job"/>
+                                        </td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.legal_address_date_job"/>
+                                        </td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.administrative_address_date_job"/>
+                                        </td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.au_gnrl_date_job"/>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

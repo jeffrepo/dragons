@@ -16,6 +16,17 @@
                     <button name="solicitar_autorizar_pago" type="object" groups="dragons.group_dragon_auxiliar"  invisible="estado_autorizado != 'admin'" string="Solicitar autorizar pago" class="oe_highlight" id="bid_confirm" data-hotkey="q"/>
                     <button name="autorizar_pago" type="object" groups="dragons.group_dragon_admin"  invisible="estado_autorizado != 'aut_pago'" string="Autorizar pago" class="oe_highlight" id="bid_confirm" data-hotkey="q"/>
                 </button>
+                
+                <field name="vat" position="after">
+                    <group name="group_history" invisible="1">
+                        <field name="prepared_manager_date_job"/>
+                        <field name="review_project_manager_date_job"/>
+                        <field name="op_managment_date_job"/>
+                        <field name="legal_address_date_job"/>
+                        <field name="administrative_address_date_job"/>
+                        <field name="au_gnrl_date_job"/>
+                    </group>
+                </field>
             </field>
         </record>
 
