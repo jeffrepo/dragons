@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+from odoo import models, fields, api, _, Command
+from odoo.exceptions import UserError
+
+class AccountPayment(models.Model):
+    _inherit = "account.payment"
+
+    estado_autorizado = fields.Selection([('grupo1','Grupo 1'),
+                                          ('grupo2','Grupo 2') ,('grupo3', 'Grupo3')],string='Estado autorizado')
+    
+
+    def action_validate(self):
+        res = super().action_validate()
+        
+        if self.payment_type == 'outbound' and self.estado_autorizado != 'grupo3':
+            raise UserError('Flujo de aprobación incompleto')
+        return res
+    
+    def autorizar_grupo1(self):
+        self.estado_autorizado = 'grupo1'
+
+    def autorizar_grupo2(self):
+        self.estado_autorizado = 'grupo2'
+
+    def autorizar_grupo3(self):
+        self.estado_autorizado = 'grupo3'
+        self.action_post()
+        self.action_validate()

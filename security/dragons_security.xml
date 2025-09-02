@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="group_dragon_1" model="res.groups">
+        <field name="name">Grupo 1</field>
+        <field name="comment">Flujo de aprobación pagos</field>
+    </record>
+
+    <record id="group_dragon_2" model="res.groups">
+        <field name="name">Grupo 2</field>
+        <field name="comment">Flujo de aprobación pagos</field>
+    </record>
+
+    <record id="group_dragon_3" model="res.groups">
+        <field name="name">Grupo 3</field>
+        <field name="comment">Flujo de aprobación pagos</field>
+    </record>
+
     <record id="group_dragon_sistemas" model="res.groups">
         <field name="name">Sistemas</field>
         <field name="comment">Flujo de aprobación compra</field>
@@ -65,5 +80,5 @@
         <field name="name">Direccion administrativa</field>
         <field name="comment">Flujo de aprobación compra</field>
     </record>
-    
+
 </odoo>

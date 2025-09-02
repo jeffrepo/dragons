@@ -5,7 +5,7 @@
     'summary': """ Funcionalidades extras para Dragons """,
 
     'description': """
-    Funcionalidades extras para ENGATEL 
+    Funcionalidades extras para DRAGONS
     """,
 
     'author': "Jefferson Silva",
@@ -19,7 +19,7 @@
     'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'purchase', 'stock'],
+    'depends': ['base', 'purchase', 'stock', 'account'],
 
     # always loaded
     'data': [
@@ -29,7 +29,7 @@
         'reports/report_action.xml',
         'views/purchase_views.xml',
         'views/res_users_views.xml',
+        'views/account_payment_view.xml',
         # 'views/stock_views.xml',
     ],
 }
-
