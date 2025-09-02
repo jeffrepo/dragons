@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models, _
+import pytz
 from odoo.exceptions import UserError
 import logging
 
@@ -19,7 +20,45 @@ class PurchaseOrder(models.Model):
                                           ('solicitud_firma_direccion_admin','Solicitud firma direccion administrativa'),
                                          ('solicitud_firma_direccion_general','Solicitud firma direccion general'),
                                          ('direccion_general_firmado','Direccion general firmado')],string='Estado autorizado')
+    
+    prepared_manager_date_job = fields.Char(string="Elabora gestor Fecha, hora y puesto", readonly=True)
+    review_project_manager_date_job = fields.Char(string="Jefe de proyecto Fecha, hora y puesto", readonly=True)
+    op_managment_date_job = fields.Char(string="Dirección de operaciones Fecha, hora y puesto", readonly=True)
+    legal_address_date_job = fields.Char(string="dirección legal Fecha, hora y puesto", readonly=True)
+    administrative_address_date_job = fields.Char(string="dirección administrativ Fecha, hora y puesto", readonly=True)
+    au_gnrl_date_job = fields.Char(string="Autoriza dirección general Fecha, hora y puesto", readonly=True)
 
+    def get_delivery_time_breakdown(self):
+        self.ensure_one()
+        if not self.create_date or not self.date_planned:
+            return " "
+        
+        # Convertir a zonas horarias aware si es necesario
+        create_date = self.create_date
+        date_planned = self.date_planned
+        
+        # Calcular diferencia
+        difference = date_planned - create_date
+        total_seconds = difference.total_seconds()
+        
+        # Calcular semanas, días y horas
+        total_hours = total_seconds / 3600
+        weeks = int(total_hours // (24 * 7))
+        remaining_hours = total_hours % (24 * 7)
+        days = int(remaining_hours // 24)
+        hours = int(remaining_hours % 24)
+        
+        # Construir el resultado
+        result = []
+        if weeks > 0:
+            result.append(f"{weeks} week{'s' if weeks != 1 else ''}")
+        if days > 0:
+            result.append(f"{days} day{'s' if days != 1 else ''}")
+        if hours > 0 or (weeks == 0 and days == 0):
+            result.append(f"{hours} hour{'s' if hours != 1 else ''}")
+        
+        return " ".join(result) if result else "0 hours"
+        
     @api.onchange('tipo_compra')
     def _onchange_tipo_compra(self):
         for compra in self:
@@ -69,6 +108,21 @@ class PurchaseOrder(models.Model):
             self.estado_autorizado = 'solicitud_firma_jefep'
             mensaje = "Solicitud de firma"
             self.message_post(partner_ids=users_in_group_jefe.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
+
+            ahora_utc = fields.Datetime.now()
+
+            user_tz = self.env.user.tz or 'UTC'
+            tz = pytz.timezone(user_tz)
+
+            ahora_local = ahora_utc.astimezone(tz)
+
+            fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
+            
+            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            
+            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            
+            self.prepared_manager_date_job = texto_completo
         else:
             raise UserError('No tiene permiso para firmar')
 
@@ -81,6 +135,21 @@ class PurchaseOrder(models.Model):
             self.estado_autorizado = 'solicitud_firma_op'
             mensaje = "Solicitud de firma"
             self.message_post(partner_ids=users_in_group_dir.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
+
+            ahora_utc = fields.Datetime.now()
+
+            user_tz = self.env.user.tz or 'UTC'
+            tz = pytz.timezone(user_tz)
+
+            ahora_local = ahora_utc.astimezone(tz)
+
+            fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
+            
+            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            
+            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            
+            self.review_project_manager_date_job = texto_completo
         else:
             raise UserError('No tiene permiso para firmar')
 
@@ -93,6 +162,21 @@ class PurchaseOrder(models.Model):
             self.estado_autorizado = 'solicitud_firma_legal'
             mensaje = "Solicitud de firma"
             self.message_post(partner_ids=users_in_group_legal.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
+            
+            ahora_utc = fields.Datetime.now()
+
+            user_tz = self.env.user.tz or 'UTC'
+            tz = pytz.timezone(user_tz)
+
+            ahora_local = ahora_utc.astimezone(tz)
+
+            fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
+            
+            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            
+            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            
+            self.op_managment_date_job = texto_completo
         else:
             raise UserError('No tiene permiso para firmar')
 
@@ -105,6 +189,21 @@ class PurchaseOrder(models.Model):
             self.estado_autorizado = 'solicitud_firma_direccion_admin'
             mensaje = "Solicitud de firma"
             self.message_post(partner_ids=users_in_group_gen.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
+            
+            ahora_utc = fields.Datetime.now()
+
+            user_tz = self.env.user.tz or 'UTC'
+            tz = pytz.timezone(user_tz)
+
+            ahora_local = ahora_utc.astimezone(tz)
+
+            fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
+            
+            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            
+            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            
+            self.legal_address_date_job = texto_completo
         else:
             raise UserError('No tiene permiso para firmar')
 
@@ -117,6 +216,22 @@ class PurchaseOrder(models.Model):
             self.estado_autorizado = 'solicitud_firma_direccion_general'
             mensaje = "Solicitud de firma"
             self.message_post(partner_ids=users_in_group_gen.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
+
+            ahora_utc = fields.Datetime.now()
+
+            user_tz = self.env.user.tz or 'UTC'
+            tz = pytz.timezone(user_tz)
+
+            ahora_local = ahora_utc.astimezone(tz)
+
+            fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
+            
+            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            
+            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            
+            self.administrative_address_date_job = texto_completo
+            
         else:
             raise UserError('No tiene permiso para firmar')
 
@@ -127,6 +242,21 @@ class PurchaseOrder(models.Model):
             self.estado_autorizado = 'direccion_general_firmado'
             mensaje = "Orden de compra autorizada"
             self.message_post(partner_ids=users_in_group_gen.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
+            
+            ahora_utc = fields.Datetime.now()
+
+            user_tz = self.env.user.tz or 'UTC'
+            tz = pytz.timezone(user_tz)
+
+            ahora_local = ahora_utc.astimezone(tz)
+
+            fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
+            
+            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            
+            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            
+            self.au_gnrl_date_job = texto_completo
         else:
             raise UserError('No tiene permiso para firmar')
     
@@ -150,4 +280,3 @@ class PurchaseOrder(models.Model):
             else:
                 pass
         return res
-                
