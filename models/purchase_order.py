@@ -265,13 +265,9 @@ class PurchaseOrder(models.Model):
         for orden in self:
             if orden.tipo_compra == 'admin':
                 if orden.estado_autorizado not in ['admin','aut_pago','pago_autorizado']:
-                if orden.estado_autorizado not in ['admin','aut_pago','pago_autorizado']:
                     logging.warning('retornar error')
                     raise UserError('Flujo de aprobación incompleto')
             elif orden.tipo_compra == 'proyecto':
-                if orden.estado_autorizado != 'direccion_general_firmado':
-                   raise UserError('No se puede confirmar, hasta terminar el flujo de autorizaciones')
-                else:
                 if orden.estado_autorizado != 'direccion_general_firmado':
                    raise UserError('No se puede confirmar, hasta terminar el flujo de autorizaciones')
                 else:
@@ -281,12 +277,6 @@ class PurchaseOrder(models.Model):
                         raise UserError('Solo puede confirmar direccion general')
                     else:
                         pass
-                    users_in_group_gen = group.users
-                    if self.env.user.partner_id.id not in users_in_group_gen.mapped('partner_id').ids:
-                        raise UserError('Solo puede confirmar direccion general')
-                    else:
-                        pass
             else:
                 pass
         return res
-                
