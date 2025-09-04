@@ -10,6 +10,10 @@ import logging
 class AccountPaymentRegister(models.TransientModel):
     _inherit = 'account.payment.register'
     
+    @api.model
+    def _from_sibling_companies(self, lines):
+        return len(lines.company_id) > 1 and not any(c.root_id in lines.company_id for c in lines.company_id)
+    
     def _create_payments(self):
         logging.warning("_create_payments inherits")
         self.ensure_one()
@@ -83,5 +87,5 @@ class AccountPaymentRegister(models.TransientModel):
 
         payments = wizard._init_payments(to_process, edit_mode=edit_mode)
         #wizard._post_payments(to_process, edit_mode=edit_mode)
-        #swizard._reconcile_payments(to_process, edit_mode=edit_mode)
+        wizard._reconcile_payments(to_process, edit_mode=edit_mode)
         return payments.sudo(flag=False)
