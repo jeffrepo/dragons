@@ -5,12 +5,14 @@
         <record id="dragons_res_users_form_inherit" model="ir.ui.view">
             <field name="name">dragons.res.users.form.inherit</field>
             <field name="model">res.users</field>
-            <field name="inherit_id" ref="base.user_groups_view"/>
+            <field name="inherit_id" ref="base.view_users_form"/>
             <field name="arch" type="xml">
-                <field name="sel_groups_102_103" position="after">
-                    <field name="warehouse_ids" widget="many2many_tags"/>
-                    <field name="location_ids" widget="many2many_tags"/>
-                </field>
+                <group name="messaging" position="after">
+                    <group name="Others">
+                        <field name="warehouse_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="location_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                    </group>
+                </group>
             </field>
         </record>
     </data>
