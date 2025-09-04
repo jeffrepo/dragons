@@ -1,32 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Regla: usuarios normales solo ven lo asignado -->
-    <record id="rule_warehouse_by_user" model="ir.rule">
-        <field name="name">Warehouses por usuario</field>
-        <field name="model_id" ref="stock.model_stock_warehouse"/>
-        <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
-        <field name="domain_force">[('id', 'in', user.warehouse_ids.ids)]</field>
-    </record>
+    <data noupdate="1">
 
-    <!-- Regla: administradores de inventario ven todo -->
-    <record id="rule_warehouse_manager" model="ir.rule">
-        <field name="name">Warehouses para administradores</field>
-        <field name="model_id" ref="stock.model_stock_warehouse"/>
-        <field name="groups" eval="[(4, ref('stock.group_stock_manager'))]"/>
-        <field name="domain_force">[(1,'=',1)]</field> <!-- siempre True -->
-    </record>
+        <!-- Regla: solo ver los almacenes asignados -->
+        <record id="rule_stock_warehouse_user_access" model="ir.rule">
+            <field name="name">Restricción de almacenes por usuario</field>
+            <field name="model_id" ref="stock.model_stock_warehouse"/>
+            <field name="global" eval="False"/>
+            <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
+            <field name="domain_force">[('id', 'in', user.warehouse_ids.ids)]</field>
+        </record>
 
-    <record id="rule_warehouse_by_user" model="ir.rule">
-        <field name="name">Location por usuario</field>
-        <field name="model_id" ref="stock.model_stock_location"/>
-        <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
-        <field name="domain_force">[('id', 'in', user.location_ids.ids)]</field>
-    </record>
+        <!-- Regla: solo ver las ubicaciones asignadas -->
+        <record id="rule_stock_location_user_access" model="ir.rule">
+            <field name="name">Restricción de ubicaciones por usuario</field>
+            <field name="model_id" ref="stock.model_stock_location"/>
+            <field name="global" eval="False"/>
+            <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
+            <field name="domain_force">[('id', 'in', user.location_ids.ids)]</field>
+        </record>
 
-    <!-- Regla: administradores de inventario ven todo -->
-    <record id="rule_warehouse_manager" model="ir.rule">
-        <field name="name">Location para administradores</field>
-        <field name="model_id" ref="stock.model_stock_location"/>
-        <field name="groups" eval="[(4, ref('stock.group_stock_manager'))]"/>
-        <field name="domain_force">[(1,'=',1)]</field> <!-- siempre True -->
-    </record>
+        <record id="rule_stock_quant_user_access" model="ir.rule">
+            <field name="name">Restricción de quants por ubicación del usuario</field>
+            <field name="model_id" ref="stock.model_stock_quant"/>
+            <field name="global" eval="False"/>
+            <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
+            <field name="domain_force">[('location_id', 'in', user.location_ids.ids)]</field>
+        </record>
+
+
+    </data>
 </odoo>
