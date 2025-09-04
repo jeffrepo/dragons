@@ -8,9 +8,15 @@ class AccountPayment(models.Model):
     estado_autorizado = fields.Selection([('grupo1','Grupo 1'),
                                           ('grupo2','Grupo 2') ,('grupo3', 'Grupo3')],string='Estado autorizado')
     
-
     def action_validate(self):
         res = super().action_validate()
+        
+        if self.payment_type == 'outbound' and self.estado_autorizado != 'grupo3':
+            raise UserError('Flujo de aprobación incompleto')
+        return res
+
+    def action_post(self):
+        res = super().action_post()
         
         if self.payment_type == 'outbound' and self.estado_autorizado != 'grupo3':
             raise UserError('Flujo de aprobación incompleto')
