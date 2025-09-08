@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="dragons_account_bank_statement_line_kanban_inherit" model="ir.ui.view">
+        <field name="name">dragons.account.bank.statement.line.kanban.inherit</field>
+        <field name="model">account.bank.statement.line</field>
+        <field name="inherit_id" ref="account_accountant.view_bank_statement_line_kanban_bank_rec_widget"/>
+        <field name="arch" type="xml">
+            
+            <!-- Insertamos el botón dentro del div -->
+            <xpath expr="//div[@class='m-1 d-flex flex-row flex-nowrap']" position="after">
+                
+                <button string="Solicitar autorización"
+                        name="request_authorization"
+                        type="object"
+                        class="btn btn-primary ms-2"
+                        invisible="authorize_cash_conciliation or application_status in ['pendiente', 'autorizado']"/>
+
+                <field  name="application_status" 
+                        widget="badge" 
+                        decoration-danger="application_status == 'pendiente'" 
+                        decoration-success="application_status == 'autorizado'" />
+
+                <button string="Otorgar permiso"
+                        name="grant_permission"
+                        type="object"
+                        class="btn btn-primary ms-2"
+                        invisible="not authorize_cash_conciliation or application_status == 'autorizado'"/>
+
+                <!-- <button string="Desotorgar permiso"
+                        name="return_permission"
+                        type="object"
+                        class="btn btn-primary ms-2"
+                        invisible="not authorize_cash_conciliation or application_status in ['autorizado', False]"/> -->
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="dragons_account_bank_statement_line_inherit" model="ir.ui.view">
+        <field name="name">dragons.account.bank.statement.line.inherit</field>
+        <field name="model">account.bank.statement.line</field>
+        <field name="inherit_id" ref="account_accountant.view_bank_statement_line_tree_bank_rec_widget"/>
+        <field name="arch" type="xml">
+            
+            <!-- Insertamos el botón dentro del div -->
+            <field name="statement_id" position="after">
+                <button string="Solicitar autorización"
+                        name="request_authorization"
+                        type="object"
+                        class="btn btn-primary ms-2"
+                        invisible="authorize_cash_conciliation or application_status in ['pendiente', 'autorizado']"/>
+
+                <field  name="application_status" 
+                        widget="badge" 
+                        decoration-danger="application_status == 'pendiente'" 
+                        decoration-success="application_status == 'autorizado'" />
+
+                <button string="Otorgar permiso"
+                        name="grant_permission"
+                        type="object"
+                        class="btn btn-primary ms-2"
+                        invisible="not authorize_cash_conciliation or application_status == 'autorizado'"/>
+            </field>
+        </field>
+    </record>
+</odoo>
