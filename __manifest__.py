@@ -27,6 +27,8 @@
         'security/ir_rules.xml',
         'reports/order_purchase_report_pdf_view.xml',
         'reports/report_action.xml',
+        'views/account_bank_statement_views.xml',
+        'views/account_journal_views.xml',
         'views/purchase_views.xml',
         'views/res_users_views.xml',
         'views/account_payment_view.xml',
