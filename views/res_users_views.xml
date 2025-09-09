@@ -17,7 +17,7 @@
             </field>
         </record>
 
-        <record id="dragons_res_users_form_extension_inherit" model="ir.ui.view">
+        <!-- <record id="dragons_res_users_form_extension_inherit" model="ir.ui.view">
             <field name="name">dragons.res.users.form.extension.inherit</field>
             <field name="model">res.users</field>
             <field name="inherit_id" ref="base.user_groups_view"/>
@@ -27,7 +27,7 @@
                     <field name="authorize_cash_conciliation" on_change="1"/>
                 </field>
             </field>
-        </record>
+        </record> -->
 
     </data>
 </odoo>

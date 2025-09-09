@@ -6,10 +6,10 @@ from odoo.exceptions import UserError
 class AccountBankStatementLine(models.Model):
     _inherit = "account.bank.statement.line"
     
-    authorize_cash_conciliation = fields.Boolean(
-        compute="_compute_authorize_cash_conciliation",
-        store=False
-    )
+    # authorize_cash_conciliation = fields.Boolean(
+    #     compute="_compute_authorize_cash_conciliation",
+    #     store=False
+    # )
 
     application_status = fields.Selection([
         ('nuevo', 'Nuevo'),            # 👈 Estado inicial
@@ -18,9 +18,9 @@ class AccountBankStatementLine(models.Model):
     ], string="Estado de la solicitud", readonly=True, default='nuevo')
 
     
-    def _compute_authorize_cash_conciliation(self):
-        for rec in self:
-            rec.authorize_cash_conciliation = self.env.user.authorize_cash_conciliation
+    # def _compute_authorize_cash_conciliation(self):
+    #     for rec in self:
+    #         rec.authorize_cash_conciliation = self.env.user.authorize_cash_conciliation
     
     
     @api.model_create_multi
@@ -112,10 +112,10 @@ class AccountBankStatementLine(models.Model):
                 if rec.is_reconciled and rec.application_status == 'pendiente':
                     raise UserError("😐 Aún no ha sido autorizado")
 
-                # Caso: el usuario intenta reconciliar sin tener autorización ni estatus aprobado
+                # Caso: el usuario intenta reconciliar sin estar autorizado y sin estatus aprobado
                 if rec.is_reconciled \
                 and rec.application_status != 'autorizado' \
-                and not self.env.user.authorize_cash_conciliation:
+                and not self.env.user.has_group("dragons.group_dragon_manager"):
                     raise UserError("😥 Por favor solicite autorización")
 
             # 🔎 Validación 2: monto mayor al saldo disponible

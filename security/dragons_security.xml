@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<odoo> 
+    <record id="group_dragon_manager" model="res.groups">
+        <field name="name">Dragon Manager</field>
+        <field name="comment">Grupo para gestionar dragones en el sistema</field>
+    </record>
 
     <record id="group_dragon_1" model="res.groups">
         <field name="name">Grupo 1</field>

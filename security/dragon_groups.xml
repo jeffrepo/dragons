@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Crear el grupo -->
+    <record id="group_dragon_manager" model="res.groups">
+        <field name="name">Dragon Manager</field>
+        <field name="comment">Grupo para gestionar dragones en el sistema</field>
+    </record>
+</odoo>
