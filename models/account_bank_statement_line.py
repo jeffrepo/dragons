@@ -21,6 +21,10 @@ class AccountBankStatementLine(models.Model):
     # def _compute_authorize_cash_conciliation(self):
     #     for rec in self:
     #         rec.authorize_cash_conciliation = self.env.user.authorize_cash_conciliation
+
+    # Agregar método faltante para evitar el error
+    def _thread_to_store(self, store, **kwargs):
+        return False
     
     
     @api.model_create_multi
