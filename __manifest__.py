@@ -26,6 +26,7 @@
         # 'security/dragon_groups.xml',
         'security/dragons_security.xml',
         'security/ir_rules.xml',
+        'security/ir_action_server.xml',
         'reports/order_purchase_report_pdf_view.xml',
         'reports/report_action.xml',
         'views/account_bank_statement_views.xml',

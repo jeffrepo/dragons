@@ -16,8 +16,6 @@
         <field name="model_id" ref="account.model_account_journal"/>
         <field name="groups" eval="[]"/>
         <field name="domain_force">[
-            '|',
-            ('type', '!=', 'cash'),
             ('id', 'in', user.cash_diaries_ids.ids)
         ]</field>
     </record>
