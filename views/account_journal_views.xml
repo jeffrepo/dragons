@@ -10,13 +10,4 @@
             </field>
         </field>
     </record>
-
-    <record id="rule_cash_journal_user" model="ir.rule">
-        <field name="name">Acceso a diarios de efectivo permitidos</field>
-        <field name="model_id" ref="account.model_account_journal"/>
-        <field name="groups" eval="[]"/>
-        <field name="domain_force">[
-            ('id', 'in', user.cash_diaries_ids.ids)
-        ]</field>
-    </record>
 </odoo>

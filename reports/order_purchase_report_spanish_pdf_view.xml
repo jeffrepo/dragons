@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="order_purchase_report_spanish_pdf">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.basic_layout">
+                        <t t-set="o" t-value="o.with_context(lang=es_MX)"/>
+                        <t t-set="time_breakdown" t-value="o.get_delivery_time_breakdown()"/>
+                        <style>
+                            .report-table {
+                                width: 100%;
+                                border: 1px solid #000000;
+                                border-collapse: collapse;
+                                margin-bottom: 20px;
+                                font-size:12px;
+                            }
+                            .report-table td, th {
+                                padding: 2px;
+                                border: 1px solid #000000;
+                                text-align: center;
+                                vertical-align: middle;
+                            }
+                            .header-cell {
+                                background-color: #f2f2f2;
+                                font-weight: bold;
+                            }
+                            .data-cell {
+                                background-color: #ffffff;
+                            }
+                        </style>
+                        <!-- Encabezado -->
+                        <div class="header">
+                            <div style="width:100%">
+                                <div class="row" style="border:1px solid black">
+                                    <div class="col-2 text-left" align="center" style="padding:5px">
+                                        <img class="img-fluid" t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo" style=" width:75%; margin:5px"/>
+                                    </div>
+                                    <div class="col-6 text-center" align="center" style="padding-top:5px;border-right:1px solid black">
+                                        <p style="text-align:center; font-size:18px">
+                                            <strong><t t-esc="o.company_id.name"/></strong> <br/> INGENIERIA APLICADA
+                                        </p>
+                                        <strong>PURCHASE ORDER</strong>
+                                    </div>
+                                    <div class="col-4 text-center" align="right" style="padding-top:5px">
+                                        Format No.<br/>
+                                        Revision #: <t t-esc="o.x_studio_nmero_de_revisin if o.x_studio_nmero_de_revisin else ''"/> <br/>
+                                        <span t-if="report_type == 'pdf'">
+                                            Page <span class="page"/> / <span class="topage"/>
+                                        </span>
+                                    </div>
+                                </div>
+                                <br/>
+                            </div>
+                        </div>
+                        <!-- Cuerpo -->
+                        <div class="body" >
+                            <table class="report-table" >
+                                <tr style="padding-top:50px; margin-top: 15px">
+                                    <td class="header-cell" rowspan="2">Purchase Order No.:</td>
+                                    <td class="data-cell" rowspan="2"><t t-esc="o.name"/></td>
+                                    <td class="header-cell">Project / Procedure No.:</td>
+                                    <td class="data-cell"><t t-esc="o.project_id.name if o.project_id else ''"/></td>
+                                    <td class="header-cell" rowspan="2">Creation Date</td>
+                                    <td class="data-cell" rowspan="2"><t t-esc="o.create_date.strftime('%d/%m/%Y')"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="header-cell">Requester</td>
+                                    <td class="data-cell"><t t-esc="o.create_uid.name"/></td>
+                                </tr>
+                            </table>
+                            <table class="report-table">
+                                <thead>
+                                    <tr>
+                                        <th class="header-cell" colspan="4">SUPPLIER INFORMATION</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td class="header-cell">Company Name,<br/> Tax ID / Tax Identification Number,<br/> Address, Contact (position),<br/>Email Address, Phone Number:</td>
+                                    <td class="data-cell">
+                                        <t t-esc="o.partner_id.name"/><br/>
+                                        <t t-esc="o.partner_id.vat"/><br/>
+                                        <t t-esc="o.partner_id.street if o.partner_id.street else ''"/> <t t-esc="o.partner_id.street2 if o.partner_id.street2 else ''"/> <t t-esc="o.partner_id.city if o.partner_id.city else ''"/> <t t-esc="o.partner_id.state_id.name if o.partner_id.state_id else ''"/> <t t-esc="o.partner_id.country_id.name if o.partner_id.country_id else ''"/> <br/>
+                                        <t t-esc="o.partner_id.function if o.partner_id.function else ''"/>
+                                        <t t-esc="o.partner_id.email if o.partner_id.email else ''"/>
+                                        <t t-esc="o.partner_id.phone if o.partner_id.phone else ''"/>
+                                    </td>
+                                    <td class="header-cell">Bank Details:</td>
+                                    <td class="data-cell">
+                                        <t t-foreach="o.partner_id.bank_ids" t-as="bank">
+                                            <t t-if="bank.acc_number">Número de la cuenta: <t t-esc="bank.acc_number if bank.acc_number else '' "/><br/></t>
+                                            <t t-if="bank.bank_id.name">Banco: <t t-esc="bank.bank_id.name if bank.bank_id.name else ''"/><br/></t>
+                                            <t t-if="bank.l10n_mx_edi_clabe">CLABE interbancaria: <t t-esc="bank.l10n_mx_edi_clabe if bank.l10n_mx_edi_clabe else ''"/><br/></t>
+                                            <t t-if="bank.partner_id.name">Titular: <t t-esc="bank.partner_id.name if bank.partner_id.name else ''"/><br/></t>
+                                            <t t-if="bank.x_studio_swift">SWIFT: <t t-esc="bank.x_studio_swift if bank.x_studio_swift else ''"/><br/></t>
+                                            <t t-if="bank.x_studio_routing_number">Routing number: <t t-esc="bank.x_studio_routing_number if bank.x_studio_routing_number else ''"/><br/></t>
+                                            <t t-if="bank.currency_id.name">Moneda: <t t-esc="bank.currency_id.name if bank.currency_id.name else ''"/><br/></t>
+                                        </t>
+                                        <t t-if="not o.partner_id.bank_ids">No bank details registered</t>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="report-table">
+                                <thead>
+                                    <tr>
+                                        <th class="header-cell" rowspan="3">Item</th>
+                                        <th class="header-cell" rowspan="3">Quantity</th>
+                                        <th class="header-cell" rowspan="3">Unit of<br/>Measure</th>
+                                        <th class="header-cell" rowspan="3">Quality<br/>Category</th>
+                                        <th class="header-cell" rowspan="3">Part Number<br/>or Service</th>
+                                        <th class="header-cell" rowspan="3">Description</th>
+                                        <th class="header-cell" colspan="2">Price</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="header-cell">Currency</th>
+                                        <td class="data-cell"><t t-esc="o.currency_id.name if o.currency_id else ''"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="header-cell">Unit Price</th>
+                                        <th class="header-cell">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="counter" t-value="1"/>
+                                    <t t-foreach="o.order_line" t-as="line">
+                                        <tr>
+                                            <t t-if="not line.product_id">
+                                                <!-- Es una nota -->
+                                                <td colspan="8" class="data-cell"><t t-esc="line.name"/></td>
+                                            </t>
+                                            <t t-else="">
+                                                <!-- Es una línea normal -->
+                                                <td><t t-esc="counter"/></td>
+                                                <td class="data-cell"><t t-esc="line.product_qty"/></td>
+                                                <td class="data-cell"><t t-esc="line.product_uom.name"/></td>
+                                                <td class="data-cell"><t t-esc="line.product_id.categ_id.name or ''"/></td>
+                                                <td class="data-cell"><t t-esc="line.product_id.default_code or ''"/></td>
+                                                <td class="data-cell"><t t-esc="line.name"/></td>
+                                                <td class="data-cell"><t t-esc="o.currency_id.format(line.price_unit)"/></td>
+                                                <td class="data-cell"><t t-esc="o.currency_id.format(line.price_subtotal)"/></td>
+                                                <t t-set="counter" t-value="counter + 1"/>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td class="header-cell" colspan="7" style="text-align: right;"><strong>Subtotal</strong></td>
+                                        <td class="header-cell" style="text-align: right;"><strong><t t-esc="o.currency_id.format(o.amount_untaxed)"/></strong></td>
+                                    </tr>
+                                    <tr t-foreach="o.tax_totals.get('subtotals', [])" t-as="subtotal">
+                                        <t t-foreach="subtotal.get('tax_groups', [])" t-as="tax_group">
+                                            <tr>
+                                                <td class="header-cell" colspan="7" style="text-align: right"><strong><t t-esc="tax_group.get('group_name', 'Sin nombre')"/></strong></td>
+                                                <td class="header-cell" style="text-align: right"><strong><t t-esc="tax_group.get('tax_amount_currency', 0)"/></strong></td>
+                                            </tr>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td class="header-cell" colspan="7" style="text-align: right"><strong><t t-esc="o.currency_id.name if o.currency_id else ''"/></strong></td>
+                                        <td class="data-cell" style="text-align: right;"><t t-esc="o.currency_id.format(o.amount_total)"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="report-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="header-cell">Delivery Time / <br/>Execution Period:</td>
+                                        <td class="data-cell">
+                                            <t t-esc="o.date_planned.strftime('%d/%m/%Y') if o.date_planned else ''"/><br/>
+                                            <t t-esc="time_breakdown"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header-cell">Warranty</td>
+                                        <td><t t-esc="o.x_studio_garanta if o.x_studio_garanta else ''"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header-cell">Payment Terms:</td>
+                                        <td><t t-esc="o.payment_term_id.name if o.payment_term_id else ''"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="report-table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2" class="header-cell">
+                                            <strong> BILLING INFORMATION </strong>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="header-cell">Company Name, Tax ID, Address,<br/> Contact (position), Email Address, <br/> Phone Number:</td>
+                                        <td class="data-cell">
+                                            <t t-esc="o.company_id.name"/><br/>
+                                            <t t-esc="o.company_id.vat"/><br/>
+                                            <t t-esc="o.company_id.street if o.company_id.street else ''"/> <t t-esc="o.company_id.city if o.company_id.city else ''"/> <t t-esc="o.company_id.state_id.name if o.company_id.state_id.name else ''"/> <t t-esc="o.company_id.country_id.name if o.company_id.country_id.name else '' "/><br/>
+                                            <t t-esc="o.user_id.name if o.user_id else ''"/> <t t-esc="o.user_id.partner_id.function if o.user_id else ''"/><br/>
+                                            <t t-esc="o.company_id.email if o.company_id.email else ''"/><br/>
+                                            <t t-esc="o.company_id.phone if o.company_id.phone else ''"/><br/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="page-break-before: always;"/>
+                            <table class="report-table">
+                                <thead>
+                                    <tr>
+                                        <th class="header-cell" colspan="2"><strong>IMPORT / DELIVERY TERMS</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="header-cell" style="width:25%">Incoterms:</td>
+                                        <td class="data-cell"><t t-esc="o.incoterm_id.code if o.incoterm_id else ''"/> <t t-esc="o.incoterm_id.name if o.incoterm_id else ''"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header-cell">Shipping Instructions:</td>
+                                        <td class="data-cell"><t t-esc="o.x_studio_instrucciones if o.x_studio_instrucciones else ''"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header-cell">Customs Broker:</td>
+                                        <td class="data-cell"><t t-esc="o.x_studio_agente_aduanal if o.x_studio_agente_aduanal else ''"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header-cell">Location of the inconterm:</td>
+                                        <td class="data-cell"><t t-esc="o.incoterm_location if o.incoterm_location else ''"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="header-cell" colspan="2">OBSERVATIONS</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="data-cell" colspan="2"><div t-field="o.notes"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>
+                                Attached Provider Proposal <t t-if="o.x_studio_propuesta_del_proveedor_adjunta">✓</t> <br/>
+                                Attached Quality Requirements <t t-if="o.x_studio_requisitos_de_calidad_adjuntos">✓</t> <br/>
+                                Attached Technical Requirements <t t-if="o.x_studio_requisitos_tcnicos_adjuntos">✓</t> <br/>
+                                Supplier approved by Quality Assurance <t t-if="o.x_studio_proveedor_aprobado_por_el_departamento_de_calidad">✓</t> <br/>
+                                Commercial Grade Supplier <t t-if="o.x_studio_requisitos_de_calidad_adjuntos">✓</t>
+                            </p>
+                            <table class="report-table">
+                                <thead>
+                                    <tr>
+                                        <th class="header-cell" rowspan="2">Responsible</th>
+                                        <th class="header-cell">Prepared by Manager</th>
+                                        <th class="header-cell">Review Project Manager</th>
+                                        <th class="header-cell">Operations Management <br/> Vo.Bo</th>
+                                        <th class="header-cell">Legal address <br/> Vo.Bo</th>
+                                        <th class="header-cell">Administrative address <br/> Vo.Bo</th>
+                                        <th class="header-cell">authorizes general direction <br/> Vo.Bo</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="header-cell">DN/DO</th>
+                                        <th class="header-cell">DDN/DDO</th>
+                                        <th class="header-cell">GACN</th>
+                                        <th class="header-cell">DL</th>
+                                        <th class="header-cell">DA</th>
+                                        <th class="header-cell">DG</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="header-cell">Name, Signature <br/> and Date:</td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.prepared_manager_date_job"/>
+                                        </td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.review_project_manager_date_job"/>
+                                        </td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.op_managment_date_job"/>
+                                        </td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.legal_address_date_job"/>
+                                        </td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.administrative_address_date_job"/>
+                                        </td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.au_gnrl_date_job"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="report-table">
+                                <thead>
+                                    <tr>
+                                        <th class="header-cell" colspan="3">CONFIRMATION AND ACCEPTANCE OF THIS PURCHASE ORDER</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border:1px solid Transparent">
+                                        <td style="border-right:1px solid Transparent;"><br/><br/><br/></td>
+                                        <td style="border:1px solid Transparent"><br/></td>
+                                        <td style="border-left:1px solid Transparent"><br/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border-top:1px solid black; border-right:1px solid Transparent; padding-top:10px; width:50%">
+                                            <t t-esc="o.company_id.name"/>
+                                        </td>
+                                        <td style="border-left:1px solid Transparent;border-top:1px solid Transparent; border-right:1px solid Transparent"></td>
+                                        <td style="border-top:1px solid black; padding-top:10px">
+                                            <t t-esc="o.partner_id.name"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

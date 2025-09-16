@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="rule_stock_warehouse_admin" model="ir.rule">
+            <field name="name">Acceso para ver todos los almacenes</field>
+            <field name="model_id" ref="stock.model_stock_warehouse"/>
+            <field name="groups" eval="[(4, ref('dragons.group_dragon_manager'))]"/>
+            <field name="domain_force">[
+                (1, '=', 1)
+            ]</field>
+        </record>
+
+        <record id="rule_stock_warehouse_user" model="ir.rule">
+            <field name="name">Acceso para ver almacenes permitidos</field>
+            <field name="model_id" ref="stock.model_stock_warehouse"/>
+            <field name="groups" eval="[(4, ref('dragons.group_dragon_user'))]"/>
+            <field name="domain_force">[
+                ('id', 'in', user.warehouse_ids.ids)
+            ]</field>
+        </record>
+
+
+        <record id="rule_stock_picking_type_admin" model="ir.rule">
+            <field name="name">Acceso para ver todos los tipos de recolección</field>
+            <field name="model_id" ref="stock.model_stock_picking_type"/>
+            <field name="groups" eval="[(4, ref('dragons.group_dragon_manager'))]"/>
+            <field name="domain_force">[
+                (1, '=', 1)
+            ]</field>
+        </record>
+
+        <record id="rule_stock_picking_type_user" model="ir.rule">
+            <field name="name">Acceso para ver tipos de recolección permitidos</field>
+            <field name="model_id" ref="stock.model_stock_picking_type"/>
+            <field name="groups" eval="[(4, ref('dragons.group_dragon_user'))]"/>
+            <field name="domain_force">[
+                ('id', 'in', user.warehouse_ids.ids)
+            ]</field>
+        </record>
+
+
+        <record id="rule_stock_picking_admin" model="ir.rule">
+            <field name="name">Acceso para ver todos los Traslados</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="groups" eval="[(4, ref('dragons.group_dragon_manager'))]"/>
+            <field name="domain_force">[
+                (1, '=', 1)
+            ]</field>
+        </record>
+
+        <record id="rule_stock_picking_user" model="ir.rule">
+            <field name="name">Acceso para ver Traslados permitidos</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="groups" eval="[(4, ref('dragons.group_dragon_user'))]"/>
+            <field name="domain_force">[
+                ('location_id', 'in', user.location_ids.ids)
+            ]</field>
+        </record>
+
+        <record id="rule_stock_quant_admin" model="ir.rule">
+            <field name="name">Acceso para ver todos los quants</field>
+            <field name="model_id" ref="stock.model_stock_quant"/>
+            <field name="groups" eval="[(4, ref('dragons.group_dragon_manager'))]"/>
+            <field name="domain_force">[
+                (1, '=', 1)
+            ]</field>
+        </record>
+
+        <record id="rule_stock_quant_user" model="ir.rule">
+            <field name="name">Acceso para ver Traslados permitidos</field>
+            <field name="model_id" ref="stock.model_stock_quant"/>
+            <field name="groups" eval="[(4, ref('dragons.group_dragon_user'))]"/>
+            <field name="domain_force">[
+                ('location_id', 'in', user.location_ids.ids)
+            ]</field>
+        </record>
+
+
+        <record id="rule_stock_move_line_admin" model="ir.rule">
+            <field name="name">Acceso para ver todos las lineas de movimiento</field>
+            <field name="model_id" ref="stock.model_stock_move_line"/>
+            <field name="groups" eval="[(4, ref('dragons.group_dragon_manager'))]"/>
+            <field name="domain_force">[
+                (1, '=', 1)
+            ]</field>
+        </record>
+
+        <record id="rule_stock_move_line_user" model="ir.rule">
+            <field name="name">Acceso para ver las lineas de movimiento permitidas</field>
+            <field name="model_id" ref="stock.model_stock_move_line"/>
+            <field name="groups" eval="[(4, ref('dragons.group_dragon_user'))]"/>
+            <field name="domain_force">[
+                ('location_id', 'in', user.location_ids.ids)
+            ]</field>
+        </record>
+
+
+        <record id="rule_account_journal_admin" model="ir.rule">
+            <field name="name">Acceso para ver todos los diarios</field>
+            <field name="model_id" ref="account.model_account_journal"/>
+            <field name="groups" eval="[(4, ref('dragons.group_dragon_manager'))]"/>
+            <field name="domain_force">[
+                (1, '=', 1)
+            ]</field>
+        </record>
+
+        <record id="rule_account_journal_user" model="ir.rule">
+            <field name="name">Acceso para ver los diarios permitidos</field>
+            <field name="model_id" ref="account.model_account_journal"/>
+            <field name="groups" eval="[(4, ref('dragons.group_dragon_user'))]"/>
+            <field name="domain_force">[
+                ('id', 'in', user.cash_diaries_ids.ids)
+            ]</field>
+        </record>
+    
+    </data>
+</odoo>
