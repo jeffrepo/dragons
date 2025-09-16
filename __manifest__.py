@@ -23,11 +23,10 @@
 
     # always loaded
     'data': [
-        # 'security/dragon_groups.xml',
         'security/dragons_security.xml',
-        'security/ir_rules.xml',
-        'security/ir_action_server.xml',
+        'security/ir_rule_views.xml',
         'reports/order_purchase_report_pdf_view.xml',
+        'reports/order_purchase_report_spanish_pdf_view.xml',
         'reports/report_action.xml',
         'views/account_bank_statement_views.xml',
         'views/account_journal_views.xml',
