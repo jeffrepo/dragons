@@ -5,7 +5,7 @@
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-call="web.basic_layout">
-                        <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
+                        <t t-set="o" t-value="o.with_context()"/>
                         <t t-set="time_breakdown" t-value="o.get_delivery_time_breakdown()"/>
                         <style>
                             .report-table {
@@ -37,9 +37,6 @@
                                         <img class="img-fluid" t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo" style=" width:75%; margin:5px"/>
                                     </div>
                                     <div class="col-6 text-center" align="center" style="padding-top:5px;border-right:1px solid black">
-                                        <p style="text-align:center; font-size:18px">
-                                            <strong><t t-esc="o.company_id.name"/></strong> <br/> INGENIERIA APLICADA
-                                        </p>
                                         <strong>PURCHASE ORDER</strong>
                                     </div>
                                     <div class="col-4 text-center" align="right" style="padding-top:5px">
@@ -66,7 +63,7 @@
                                 </tr>
                                 <tr>
                                     <td class="header-cell">Requester</td>
-                                    <td class="data-cell"><t t-esc="o.create_uid.name"/></td>
+                                    <td class="data-cell"><t t-esc="o.x_studio_empleado_comprador.name if o.x_studio_empleado_comprador"/></td>
                                 </tr>
                             </table>
                             <table class="report-table">
@@ -171,7 +168,7 @@
                                     </tr>
                                     <tr>
                                         <td class="header-cell">Warranty</td>
-                                        <td><t t-esc="o.x_studio_garanta if o.x_studio_garanta else ''"/></td>
+                                        <td><t t-esc="o.x_studio_garanta.name if o.x_studio_garanta.name else ''"/></td>
                                     </tr>
                                     <tr>
                                         <td class="header-cell">Payment Terms:</td>
@@ -194,7 +191,7 @@
                                             <t t-esc="o.company_id.name"/><br/>
                                             <t t-esc="o.company_id.vat"/><br/>
                                             <t t-esc="o.company_id.street if o.company_id.street else ''"/> <t t-esc="o.company_id.city if o.company_id.city else ''"/> <t t-esc="o.company_id.state_id.name if o.company_id.state_id.name else ''"/> <t t-esc="o.company_id.country_id.name if o.company_id.country_id.name else '' "/><br/>
-                                            <t t-esc="o.user_id.name if o.user_id else ''"/> <t t-esc="o.user_id.partner_id.function if o.user_id else ''"/><br/>
+                                            <t t-esc="o.x_studio_empleado_comprador.name if o.x_studio_empleado_comprador else ''"/> <t t-esc="o.x_studio_empleado_comprador.function if o.x_studio_empleado_comprador else ''"/><br/>
                                             <t t-esc="o.company_id.email if o.company_id.email else ''"/><br/>
                                             <t t-esc="o.company_id.phone if o.company_id.phone else ''"/><br/>
                                         </td>

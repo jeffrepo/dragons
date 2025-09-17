@@ -7,7 +7,7 @@ class AccountMove(models.Model):
     _inherit = 'account.move'
 
     def _search_default_journal(self):
-        print("Hiiii ")
+        print("Hiiii")
         # Mantener lógica original para statement lines
         if self.statement_line_ids.statement_id.journal_id:
             return self.statement_line_ids.statement_id.journal_id[:1]

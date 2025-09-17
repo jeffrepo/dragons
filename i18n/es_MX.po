@@ -16,52 +16,52 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Week"
 msgstr "Semana"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Weeks"
 msgstr "Semanas"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "day"
 msgstr "día"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "days"
 msgstr "días"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "BILLING INFORMATION"
 msgstr "DATOS DE FACTURACIÓN"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "<strong> BILLING INFORMATION </strong>"
 msgstr "<strong> DATOS DE FACTURACIÓN </strong>"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "<strong>IMPORT / DELIVERY TERMS</strong>"
 msgstr "<strong>TÉRMINOS DE IMPORTACIÓN / ENTREGA</strong>"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "<strong>PURCHASE ORDER</strong>"
 msgstr "<strong>ORDEN DE COMPRA</strong>"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "<strong>Subtotal</strong>"
 msgstr "<strong>Subtotal</strong>"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "APPROVES"
 msgstr "APRUEBA"
 
@@ -71,7 +71,7 @@ msgid "Administración"
 msgstr "Administración"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Approval"
 msgstr "Aprobación"
 
@@ -81,7 +81,7 @@ msgid "Asistente de Dirección"
 msgstr "Asistente de Dirección"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid ""
 "Attached Provider Proposal<br/>\n"
 "                                Attached Quality Requirements<br/>\n"
@@ -121,12 +121,12 @@ msgid "Auxiliar administrativo"
 msgstr "Auxiliar administrativo"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Bank Details:"
 msgstr "Datos Bancarios:"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "CONFIRMATION AND ACCEPTANCE OF THIS PURCHASE ORDER"
 msgstr "CONFIRMACIÓN Y ACEPTACIÓN DE ESTA ORDEN DE COMPRA"
 
@@ -136,7 +136,7 @@ msgid "Caja chica"
 msgstr "Caja chica"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid ""
 "Company Name, Tax ID, Address,<br/> Contact (position), Email Address, <br/>"
 " Phone Number:"
@@ -145,7 +145,7 @@ msgstr ""
 " Número de Teléfono:"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid ""
 "Company Name,<br/> Tax ID / Tax Identification Number,<br/> Address, Contact"
 " (position),<br/>Email Address, Phone Number:"
@@ -164,12 +164,12 @@ msgid "Compra proyecto"
 msgstr "Compra proyecto"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Creation Date"
 msgstr "Fecha de Creación"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Currency"
 msgstr "Moneda"
 
@@ -179,7 +179,7 @@ msgid "Custom Purchase Order Format"
 msgstr "Formato Personalizado de Orden de Compra"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Customs Broker:"
 msgstr "Agente Aduanal:"
 
@@ -189,37 +189,37 @@ msgid "CxP"
 msgstr "CxP"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "DA"
 msgstr "DA"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "DDN/DDO"
 msgstr "DDN/DDO"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "DG"
 msgstr "DG"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "DL"
 msgstr "DL"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "DN/DO"
 msgstr "DN/DO"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Delivery Time / <br/>Execution Period:"
 msgstr "Tiempo de Entrega / <br/>Periodo de Ejecución:"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Description"
 msgstr "Descripción"
 
@@ -256,7 +256,7 @@ msgid "Flujo de aprobación compra."
 msgstr "Flujo de aprobación compra."
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid ""
 "Format No.<br/>\n"
 "                                        Revision #:<br/>"
@@ -265,7 +265,7 @@ msgstr ""
 "                                        Revisión #:<br/>"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "GACN"
 msgstr "GACN"
 
@@ -275,17 +275,17 @@ msgid "Gestor de proyecto"
 msgstr "Gestor de proyecto"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Incoterms:"
 msgstr "Incoterms:"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Item"
 msgstr "Partida"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Logo"
 msgstr "Logo"
 
@@ -295,27 +295,27 @@ msgid "Mantenimiento"
 msgstr "Mantenimiento"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Name, Signature and Date:"
 msgstr "Nombre, Firma y Fecha:"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "No bank details registered"
 msgstr "No hay datos bancarios registrados"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "OBSERVATIONS"
 msgstr "OBSERVACIONES"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "PREPARES"
 msgstr "PREPARA"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Page <span class=\"page\"/> / <span class=\"topage\"/>"
 msgstr "Página <span class=\"page\"/> / <span class=\"topage\"/>"
 
@@ -325,22 +325,22 @@ msgid "Pago autorizad"
 msgstr "Pago autorizado"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Part Number<br/>or Service"
 msgstr "No. de Parte<br/>o Servicio"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Payment Terms:"
 msgstr "Términos de Pago:"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Price"
 msgstr "Precio"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Project / Procedure No.:"
 msgstr "Proyecto / No. Procedimiento:"
 
@@ -350,42 +350,42 @@ msgid "Purchase Order"
 msgstr "Orden de Compra"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Purchase Order No.:"
 msgstr "Número de Orden de Compra:"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Quality<br/>Category"
 msgstr "Calidad<br/>Categoría"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "REVIEWS"
 msgstr "REVISA"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Requester"
 msgstr "Solicitante"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Responsible"
 msgstr "Responsable"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "SUPPLIER INFORMATION"
 msgstr "INFORMACIÓN DEL PROVEEDOR"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Shipping Instructions:"
 msgstr "Instrucciones de embarque:"
 
@@ -410,7 +410,7 @@ msgid "Solicitar autorizar pago"
 msgstr "Solicitar autorizar pago"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Subtotal"
 msgstr "Subtotal"
 
@@ -420,21 +420,21 @@ msgid "Tipo de compra"
 msgstr "Tipo de compra"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Unit Price"
 msgstr "Precio Unitario"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Unit of<br/>Measure"
 msgstr "Unidad de<br/>Medida"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "VERIFIES"
 msgstr "VERIFICA"
 
 #. module: dragons
-#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_pdf
+#: model_terms:ir.ui.view,arch_db:dragons.order_purchase_report_spanish_pdf
 msgid "Warranty"
 msgstr "Garantía"

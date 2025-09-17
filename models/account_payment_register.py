@@ -11,7 +11,7 @@ class AccountPaymentRegister(models.TransientModel):
         
         for wizard in self:
             # Para usuarios admin, no filtrar
-            if self.env.user.has_group('base.group_system'):
+            if self.env.user.has_group('dragons.group_dragon_manager'):
                 continue
                 
             user_journals = self.env.user.cash_diaries_ids
