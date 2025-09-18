@@ -14,7 +14,7 @@
             <field name="margin_right">0</field>
         </record>
 
-        <record id="action_custom_purchase_order_format" model="ir.actions.report">
+        <record id="action_custom_purchase_order_format_english" model="ir.actions.report">
             <field name="name">Custom Purchase Order Format English version</field>
             <field name="model">purchase.order</field>
             <field name="report_type">qweb-pdf</field>

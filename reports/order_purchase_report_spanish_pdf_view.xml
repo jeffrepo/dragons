@@ -5,7 +5,7 @@
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-call="web.basic_layout">
-                        <t t-set="o" t-value="o.with_context(lang=es_MX)"/>
+                        <t t-set="o" t-value="o.with_context(lang='es_MX')"/>
                         <t t-set="time_breakdown" t-value="o.get_delivery_time_breakdown()"/>
                         
                         <style>
@@ -64,7 +64,7 @@
                                 </tr>
                                 <tr>
                                     <td class="header-cell">Requester</td>
-                                    <td class="data-cell"><t t-esc="o.x_studio_empleado_comprador.name if o.x_studio_empleado_comprador"/></td>
+                                    <td class="data-cell"><t t-esc="o.x_studio_empleado_comprador.name if o.x_studio_empleado_comprador else ''"/></td>
                                 </tr>
                             </table>
                             <table class="report-table">
