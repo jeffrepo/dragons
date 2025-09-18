@@ -86,6 +86,7 @@ class AccountPaymentRegister(models.TransientModel):
         wizard = self.sudo() if from_sibling_companies else self
 
         payments = wizard._init_payments(to_process, edit_mode=edit_mode)
-        #wizard._post_payments(to_process, edit_mode=edit_mode)
+        if wizard.payment_type == 'inbound':
+            wizard._post_payments(to_process, edit_mode=edit_mode)
         wizard._reconcile_payments(to_process, edit_mode=edit_mode)
         return payments.sudo(flag=False)
