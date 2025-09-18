@@ -34,7 +34,5 @@ class AccountPayment(models.Model):
         self.action_validate()
         if self.invoice_ids:
             for factura in self.invoice_ids:
-                logging.warning("factura")
-                logging.warning(factura)
-                payment_lines = self.move_id.line_ids.filtered(lambda line: line.account_id.account_type == 'asset_receivable' and not line.reconciled)
+                payment_lines = self.move_id.line_ids.filtered(lambda line: line.account_id.account_type == 'liability_payable' and not line.reconciled)
                 factura.js_assign_outstanding_line(payment_lines.id)
