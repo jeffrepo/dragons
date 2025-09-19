@@ -38,6 +38,7 @@
                                         <img class="img-fluid" t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo" style=" width:75%; margin:5px"/>
                                     </div>
                                     <div class="col-6 text-center" align="center" style="padding-top:5px;border-right:1px solid black">
+                                        <strong><t t-esc="o.company_id.name"/></strong>
                                         <strong>ORDEN DE COMPRA</strong>
                                     </div>
                                     <div class="col-4 text-center" align="right" style="padding-top:5px">
@@ -169,7 +170,7 @@
                                     </tr>
                                     <tr>
                                         <td class="header-cell">Garantía</td>
-                                        <td><t t-esc="o.x_studio_garanta.name if o.x_studio_garanta.name else ''"/></td>
+                                        <td><t t-esc="o.x_studio_garanta.x_name if o.x_studio_garanta.x_name else ''"/></td>
                                     </tr>
                                     <tr>
                                         <td class="header-cell">Términos de pago:</td>
@@ -256,6 +257,7 @@
                                         <th class="header-cell">DL</th>
                                         <th class="header-cell">DA</th>
                                         <th class="header-cell">DG</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -300,7 +302,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            
+
                             <table class="report-table">
                                 <thead>
                                     <tr>
