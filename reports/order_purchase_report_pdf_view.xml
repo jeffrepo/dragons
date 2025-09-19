@@ -41,7 +41,8 @@
                                     </div>
                                     <div class="col-4 text-center" align="right" style="padding-top:5px">
                                         Format No.<br/>
-                                        Revision #: <t t-esc="o.x_studio_nmero_de_revisin if o.x_studio_nmero_de_revisin else ''"/> <br/>
+                                        Revision #: 
+                                        <t t-esc="o.x_studio_nmero_de_revisin if o.x_studio_nmero_de_revisin else ''"/> <br/>
                                         <span t-if="report_type == 'pdf'">
                                             Page <span class="page"/> / <span class="topage"/>
                                         </span>
@@ -63,7 +64,7 @@
                                 </tr>
                                 <tr>
                                     <td class="header-cell">Requester</td>
-                                    <td class="data-cell"><t t-esc="o.x_studio_empleado_comprador.name if o.x_studio_empleado_comprador else ''"/></td>
+                                    <td class="data-cell"><t t-esc="o.x_studio_empleado_comprador.x_name if o.x_studio_empleado_comprador else ''"/></td>
                                 </tr>
                             </table>
                             <table class="report-table">
@@ -168,7 +169,9 @@
                                     </tr>
                                     <tr>
                                         <td class="header-cell">Warranty</td>
-                                        <td><t t-esc="o.x_studio_garanta.name if o.x_studio_garanta.name else ''"/></td>
+                                        <td>
+                                            <t t-esc="o.x_studio_garanta.x_name if o.x_studio_garanta else ''"/>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="header-cell">Payment Terms:</td>
@@ -212,11 +215,15 @@
                                     </tr>
                                     <tr>
                                         <td class="header-cell">Shipping Instructions:</td>
-                                        <td class="data-cell"><t t-esc="o.x_studio_instrucciones if o.x_studio_instrucciones else ''"/></td>
+                                        <td class="data-cell">
+                                            <t t-esc="o.x_studio_instrucciones if o.x_studio_instrucciones else ''"/>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="header-cell">Customs Broker:</td>
-                                        <td class="data-cell"><t t-esc="o.x_studio_agente_aduanal if o.x_studio_agente_aduanal else ''"/></td>
+                                        <td class="data-cell">
+                                            <t t-esc="o.x_studio_agente_aduanal if o.x_studio_agente_aduanal else ''"/>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="header-cell">Location of the inconterm:</td>
