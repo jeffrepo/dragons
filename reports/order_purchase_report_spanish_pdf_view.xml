@@ -256,6 +256,7 @@
                                         <th class="header-cell">DL</th>
                                         <th class="header-cell">DA</th>
                                         <th class="header-cell">DG</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -300,7 +301,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            
+
                             <table class="report-table">
                                 <thead>
                                     <tr>
