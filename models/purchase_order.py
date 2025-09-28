@@ -118,7 +118,7 @@ class PurchaseOrder(models.Model):
 
             fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
             
-            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            puesto_trabajo = self.create_uid.partner_id.function or ''
             
             texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
             
@@ -145,7 +145,7 @@ class PurchaseOrder(models.Model):
 
             fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
             
-            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            puesto_trabajo = self.create_uid.partner_id.function or ''
             
             texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
             
@@ -172,7 +172,7 @@ class PurchaseOrder(models.Model):
 
             fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
             
-            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            puesto_trabajo = self.create_uid.partner_id.function or ''
             
             texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
             
@@ -199,7 +199,7 @@ class PurchaseOrder(models.Model):
 
             fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
             
-            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            puesto_trabajo = self.create_uid.partner_id.function or ''
             
             texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
             
@@ -226,7 +226,7 @@ class PurchaseOrder(models.Model):
 
             fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
             
-            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            puesto_trabajo = self.create_uid.partner_id.function or ''
             
             texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
             
@@ -252,7 +252,7 @@ class PurchaseOrder(models.Model):
 
             fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
             
-            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            puesto_trabajo = self.create_uid.partner_id.function or ''
             
             texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
             
