@@ -21,12 +21,12 @@ class PurchaseOrder(models.Model):
                                          ('solicitud_firma_direccion_general','Solicitud firma direccion general'),
                                          ('direccion_general_firmado','Direccion general firmado')],string='Estado autorizado')
     
-    prepared_manager_date_job = fields.Char(string="Elabora gestor Fecha, hora y puesto", readonly=True)
-    review_project_manager_date_job = fields.Char(string="Jefe de proyecto Fecha, hora y puesto", readonly=True)
-    op_managment_date_job = fields.Char(string="Dirección de operaciones Fecha, hora y puesto", readonly=True)
-    legal_address_date_job = fields.Char(string="dirección legal Fecha, hora y puesto", readonly=True)
-    administrative_address_date_job = fields.Char(string="dirección administrativ Fecha, hora y puesto", readonly=True)
-    au_gnrl_date_job = fields.Char(string="Autoriza dirección general Fecha, hora y puesto", readonly=True)
+    prepared_manager_date_job = fields.Char(string="Elabora gestor Fecha, hora y puesto", readonly=True, copy=False)
+    review_project_manager_date_job = fields.Char(string="Jefe de proyecto Fecha, hora y puesto", readonly=True, copy=False)
+    op_managment_date_job = fields.Char(string="Dirección de operaciones Fecha, hora y puesto", readonly=True, copy=False)
+    legal_address_date_job = fields.Char(string="dirección legal Fecha, hora y puesto", readonly=True, copy=False)
+    administrative_address_date_job = fields.Char(string="dirección administrativ Fecha, hora y puesto", readonly=True, copy=False)
+    au_gnrl_date_job = fields.Char(string="Autoriza dirección general Fecha, hora y puesto", readonly=True, copy=False)
 
     def get_delivery_time_breakdown(self):
         self.ensure_one()
