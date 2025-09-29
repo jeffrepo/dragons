@@ -257,6 +257,7 @@ class PurchaseOrder(models.Model):
             texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
             
             self.au_gnrl_date_job = texto_completo
+            self.button_confirm()
         else:
             raise UserError('No tiene permiso para firmar')
     
@@ -280,3 +281,74 @@ class PurchaseOrder(models.Model):
             else:
                 pass
         return res
+
+    def compras_pendientes_email(self):
+        PurchaseOrder = self.env['purchase.order']
+    
+        # Map estado_autorizado to group XML IDs
+        grupos = {
+            'solicitud_firma_jefep': 'dragons.group_dragon_jefe_proyecto',
+            'solicitud_firma_op': 'dragons.group_dragon_direccion_operaciones',
+            'solicitud_firma_legal': 'dragons.group_dragon_direccion_legal',
+            'solicitud_firma_direccion_admin': 'dragons.group_dragon_direccion_admin',
+            'solicitud_firma_direccion_general': 'dragons.group_dragon_direccion_general',
+        }
+    
+        # Step 1: Group purchase orders by estado_autorizado
+        groups = PurchaseOrder.read_group(
+            domain=[
+                ('state', '=', 'draft'),
+                ('estado_autorizado', '!=', 'direccion_general_firmado')
+            ],
+            fields=['estado_autorizado'],
+            groupby=['estado_autorizado'],
+            lazy=False
+        )
+    
+        for group in groups:
+            estado = group['estado_autorizado']
+            if not estado:
+                continue  # Skip undefined estado_autorizado
+    
+            domain = group['__domain']
+            orders = PurchaseOrder.search(domain)
+            order_names = orders.mapped('name')
+    
+            # Step 2: Get group XML ID and users
+            group_xml_id = grupos.get(estado)
+            if not group_xml_id:
+                logging.warning(f"No group configured for estado_autorizado: {estado}")
+                continue
+    
+            try:
+                user_group = self.env.ref(group_xml_id)
+            except ValueError:
+                logging.warning(f"Group XML ID '{group_xml_id}' not found.")
+                continue
+    
+            users = user_group.users
+            emails = users.mapped('email')
+            emails = [email for email in emails if email]  # Filter out empty emails
+    
+            if not emails:
+                logging.warning(f"No emails found for group {group_xml_id}")
+                continue
+    
+            # Step 3: Send email
+            body = f"""
+            <p>Hola,</p>
+            <p>Hay órdenes de compra pendientes para tu autorización (<strong>{estado}</strong>):</p>
+            <ul>
+                {''.join(f'<li>{name}</li>' for name in order_names)}
+            </ul>
+            <p>Por favor, ingresa a Odoo para revisarlas.</p>
+            """
+    
+            mail_values = {
+                'subject': f'Órdenes de Compra Pendientes - Estado: {estado}',
+                'body_html': body,
+                'email_to': ','.join(emails),
+            }
+            self.env['mail.mail'].create(mail_values).send()
+    
+            logging.warning(f"Correo enviado a {emails} para estado {estado} con órdenes: {order_names}")
