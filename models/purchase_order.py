@@ -118,9 +118,11 @@ class PurchaseOrder(models.Model):
 
             fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
             
-            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            puesto_trabajo = self.create_uid.partner_id.function or '  '
+
+            name = self.env.user.name
             
-            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            texto_completo = f"{fecha_hora_actual} \n {name} \n {puesto_trabajo}"
             
             self.prepared_manager_date_job = texto_completo
         else:
@@ -145,9 +147,11 @@ class PurchaseOrder(models.Model):
 
             fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
             
-            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            puesto_trabajo = self.create_uid.partner_id.function or '  '
+
+            name = self.env.user.name
             
-            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            texto_completo = f"{fecha_hora_actual} \n {name} \n {puesto_trabajo}"
             
             self.review_project_manager_date_job = texto_completo
         else:
@@ -172,9 +176,11 @@ class PurchaseOrder(models.Model):
 
             fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
             
-            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            puesto_trabajo = self.create_uid.partner_id.function or '  '
             
-            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            name = self.env.user.name
+            
+            texto_completo = f"{fecha_hora_actual} \n {name} \n {puesto_trabajo}"
             
             self.op_managment_date_job = texto_completo
         else:
@@ -199,9 +205,11 @@ class PurchaseOrder(models.Model):
 
             fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
             
-            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            puesto_trabajo = self.create_uid.partner_id.function or '  '
             
-            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            name = self.env.user.name
+            
+            texto_completo = f"{fecha_hora_actual} \n {name} \n {puesto_trabajo}"
             
             self.legal_address_date_job = texto_completo
         else:
@@ -226,9 +234,11 @@ class PurchaseOrder(models.Model):
 
             fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
             
-            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            puesto_trabajo = self.create_uid.partner_id.function or '  '
             
-            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            name = self.env.user.name
+            
+            texto_completo = f"{fecha_hora_actual} \n {name} \n {puesto_trabajo}"
             
             self.administrative_address_date_job = texto_completo
             
@@ -252,9 +262,11 @@ class PurchaseOrder(models.Model):
 
             fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
             
-            puesto_trabajo = self.create_uid.partner_id.function or 'Sin puesto definido'
+            puesto_trabajo = self.create_uid.partner_id.function or '  '
             
-            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            name = self.env.user.name
+            
+            texto_completo = f"{fecha_hora_actual} \n {name} \n {puesto_trabajo}"
             
             self.au_gnrl_date_job = texto_completo
         else:

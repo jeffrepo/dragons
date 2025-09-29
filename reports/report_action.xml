@@ -14,6 +14,29 @@
             <field name="margin_right">0</field>
         </record>
 
+        <record id="custom_purchase_order_paperformat_landscape" model="report.paperformat">
+            <field name="name">Custom Purchase Order Format Landscape</field>
+            <field name="format">A4</field>
+            <field name="orientation">Landscape</field>
+            <field name="header_spacing">34</field>  <!-- Esto elimina el espacio del header -->
+            <field name="dpi">90</field>
+            <field name="margin_top">38</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+        </record>
+
+        <record id="action_custom_purchase_order_format_english_landascape" model="ir.actions.report">
+            <field name="name">Custom Purchase Order Format English version Landscape</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">dragons.order_purchase_report_pdf_landscape</field>
+            <field name="report_file">dragons.order_purchase_report_pdf_landscape</field>
+            <field name="paperformat_id" ref="custom_purchase_order_paperformat_landscape"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
         <record id="action_custom_purchase_order_format_english" model="ir.actions.report">
             <field name="name">Custom Purchase Order Format English version</field>
             <field name="model">purchase.order</field>
@@ -33,6 +56,17 @@
             <field name="report_name">dragons.order_purchase_report_spanish_pdf</field>
             <field name="report_file">dragons.order_purchase_report_spanish_pdf</field>
             <field name="paperformat_id" ref="custom_purchase_order_paperformat"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="action_custom_purchase_order_format_spanish_landscape" model="ir.actions.report">
+            <field name="name">Formato de orden de compra personalizado "Horizontal"</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">dragons.order_purchase_report_spanish_pdf_landscape</field>
+            <field name="report_file">dragons.order_purchase_report_spanish_pdf_landscape</field>
+            <field name="paperformat_id" ref="custom_purchase_order_paperformat_landscape"/>
             <field name="binding_model_id" ref="purchase.model_purchase_order"/>
             <field name="binding_type">report</field>
         </record>

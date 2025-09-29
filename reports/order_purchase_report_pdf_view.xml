@@ -37,7 +37,7 @@
                                         <img class="img-fluid" t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo" style=" width:75%; margin:5px"/>
                                     </div>
                                     <div class="col-6 text-center" align="center" style="padding-top:5px;border-right:1px solid black">
-                                        <strong><t t-esc="o.company_id.name"/></strong>
+                                        <strong><t t-esc="o.company_id.name"/></strong><br/>
                                         <strong>PURCHASE ORDER</strong>
                                     </div>
                                     <div class="col-4 text-center" align="right" style="padding-top:5px">
@@ -59,13 +59,13 @@
                                     <td class="header-cell" rowspan="2">Purchase Order No.:</td>
                                     <td class="data-cell" rowspan="2"><t t-esc="o.name"/></td>
                                     <td class="header-cell">Project / Procedure No.:</td>
-                                    <td class="data-cell"><t t-esc="o.project_id.name if o.project_id else ''"/></td>
+                                    <td class="data-cell" t-att-style="'min-width: 25px;' if not o.project_id else ''"><t t-esc="o.project_id.name if o.project_id else ''"/></td>
                                     <td class="header-cell" rowspan="2">Creation Date</td>
                                     <td class="data-cell" rowspan="2"><t t-esc="o.create_date.strftime('%d/%m/%Y')"/></td>
                                 </tr>
                                 <tr>
                                     <td class="header-cell">Requester</td>
-                                    <td class="data-cell"><t t-esc="o.x_studio_empleado_comprador.x_name if o.x_studio_empleado_comprador else ''"/></td>
+                                    <td class="data-cell" t-att-style="'min-width: 25px;' if not o.x_studio_empleado_comprador else ''"><t t-esc="o.x_studio_empleado_comprador.x_name if o.x_studio_empleado_comprador else ''"/></td>
                                 </tr>
                             </table>
                             <table class="report-table">
@@ -125,7 +125,14 @@
                                         <tr>
                                             <t t-if="not line.product_id">
                                                 <!-- Es una nota -->
-                                                <td colspan="8" class="data-cell"><t t-esc="line.name"/></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="data-cell"><t t-esc="line.name"/></td>
+                                                <td></td>
+                                                <td></td>
                                             </t>
                                             <t t-else="">
                                                 <!-- Es una línea normal -->
@@ -223,7 +230,7 @@
                                     <tr>
                                         <td class="header-cell">Customs Broker:</td>
                                         <td class="data-cell">
-                                            <t t-esc="o.x_studio_agente_aduanal if o.x_studio_agente_aduanal else ''"/>
+                                            <t t-esc="o.x_studio_agente_aduanal.name if o.x_studio_agente_aduanal else ''"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -238,13 +245,34 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <p>
-                                Attached Provider Proposal <t t-if="o.x_studio_propuesta_del_proveedor_adjunta">✓</t> <br/>
-                                Attached Quality Requirements <t t-if="o.x_studio_requisitos_de_calidad_adjuntos">✓</t> <br/>
-                                Attached Technical Requirements <t t-if="o.x_studio_requisitos_tcnicos_adjuntos">✓</t> <br/>
-                                Supplier approved by Quality Assurance <t t-if="o.x_studio_proveedor_aprobado_por_el_departamento_de_calidad">✓</t> <br/>
-                                Commercial Grade Supplier <t t-if="o.x_studio_requisitos_de_calidad_adjuntos">✓</t>
-                            </p>
+                            <table style="width:70%; border:1px solid Transparent">
+                                <tr style="border:1px solid Transparent">
+                                    <td>Attached Provider Proposal</td>
+                                    <td>SI( <t t-if="o.x_studio_propuesta_del_proveedor_adjunta">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.x_studio_propuesta_del_proveedor_adjunta">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Attached Quality Requirements</td>
+                                    <td>SI( <t t-if="o.x_studio_requisitos_de_calidad_adjuntos">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.x_studio_requisitos_de_calidad_adjuntos">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Attached Technical Requirements</td>
+                                    <td>SI( <t t-if="o.x_studio_requisitos_tcnicos_adjuntos">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.x_studio_requisitos_tcnicos_adjuntos">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Supplier approved by Quality Assurance </td>
+                                    <td>SI( <t t-if="o.x_studio_proveedor_aprobado_por_el_departamento_de_calidad">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.x_studio_proveedor_aprobado_por_el_departamento_de_calidad">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Commercial Grade Supplier</td>
+                                    <td>SI( <t t-if="o.x_studio_requisitos_de_calidad_adjuntos">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.x_studio_requisitos_de_calidad_adjuntos">✓</t> )</td>
+                                </tr>
+                            </table>
+                            <br/>
                             <table class="report-table">
                                 <thead>
                                     <tr>
