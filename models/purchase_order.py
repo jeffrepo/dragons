@@ -106,9 +106,12 @@ class PurchaseOrder(models.Model):
         users_in_group_jefe = group_jefe.users
         if self.env.user.partner_id.id in users_in_group_gestor.mapped('partner_id').ids:
             self.estado_autorizado = 'solicitud_firma_jefep'
+            mensaje_autorizado = "Firma " + group.name + ' por ' + self.env.user.name
+            self.message_post(partner_ids=users_in_group_jefe.mapped('partner_id').ids,body= mensaje_autorizado, subject="Firmado", email_from=False)
+
             mensaje = "Solicitud de firma"
             self.message_post(partner_ids=users_in_group_jefe.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
-
+            
             ahora_utc = fields.Datetime.now()
 
             user_tz = self.env.user.tz or 'UTC'
@@ -120,7 +123,9 @@ class PurchaseOrder(models.Model):
             
             puesto_trabajo = self.create_uid.partner_id.function or '  '
 
-            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            name = self.env.user.name
+            
+            texto_completo = f"{fecha_hora_actual} \n {name} \n {puesto_trabajo}"
             
             self.prepared_manager_date_job = texto_completo
         else:
@@ -133,6 +138,9 @@ class PurchaseOrder(models.Model):
         users_in_group_dir = group_dir.users
         if self.env.user.partner_id.id in users_in_group_gestor.mapped('partner_id').ids:
             self.estado_autorizado = 'solicitud_firma_op'
+            mensaje_autorizado = "Firma " + group.name + ' por ' + self.env.user.name
+            self.message_post(partner_ids=users_in_group_dir.mapped('partner_id').ids,body= mensaje_autorizado, subject="Firmado", email_from=False)
+            
             mensaje = "Solicitud de firma"
             self.message_post(partner_ids=users_in_group_dir.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
 
@@ -147,7 +155,9 @@ class PurchaseOrder(models.Model):
             
             puesto_trabajo = self.create_uid.partner_id.function or '  '
 
-            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            name = self.env.user.name
+            
+            texto_completo = f"{fecha_hora_actual} \n {name} \n {puesto_trabajo}"
             
             self.review_project_manager_date_job = texto_completo
         else:
@@ -160,6 +170,10 @@ class PurchaseOrder(models.Model):
         users_in_group_legal = group_legal.users
         if self.env.user.partner_id.id in users_in_group_oper.mapped('partner_id').ids:
             self.estado_autorizado = 'solicitud_firma_legal'
+            mensaje_autorizado = "Firma " + group.name + ' por ' + self.env.user.name
+            self.message_post(partner_ids=users_in_group_legal.mapped('partner_id').ids,body= mensaje_autorizado, subject="Firmado", email_from=False)
+            
+            
             mensaje = "Solicitud de firma"
             self.message_post(partner_ids=users_in_group_legal.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
             
@@ -174,7 +188,9 @@ class PurchaseOrder(models.Model):
             
             puesto_trabajo = self.create_uid.partner_id.function or '  '
             
-            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            name = self.env.user.name
+            
+            texto_completo = f"{fecha_hora_actual} \n {name} \n {puesto_trabajo}"
             
             self.op_managment_date_job = texto_completo
         else:
@@ -187,6 +203,9 @@ class PurchaseOrder(models.Model):
         users_in_group_gen = group_gen.users
         if self.env.user.partner_id.id in users_in_group_admin.mapped('partner_id').ids:
             self.estado_autorizado = 'solicitud_firma_direccion_admin'
+            mensaje_autorizado = "Firma " + group.name + ' por ' + self.env.user.name
+            self.message_post(partner_ids=users_in_group_gen.mapped('partner_id').ids,body= mensaje_autorizado, subject="Firmado", email_from=False)
+                        
             mensaje = "Solicitud de firma"
             self.message_post(partner_ids=users_in_group_gen.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
             
@@ -201,7 +220,9 @@ class PurchaseOrder(models.Model):
             
             puesto_trabajo = self.create_uid.partner_id.function or '  '
             
-            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            name = self.env.user.name
+            
+            texto_completo = f"{fecha_hora_actual} \n {name} \n {puesto_trabajo}"
             
             self.legal_address_date_job = texto_completo
         else:
@@ -214,6 +235,9 @@ class PurchaseOrder(models.Model):
         users_in_group_gen = group_gen.users
         if self.env.user.partner_id.id in users_in_group_admin.mapped('partner_id').ids:
             self.estado_autorizado = 'solicitud_firma_direccion_general'
+            mensaje_autorizado = "Firma " + group.name + ' por ' + self.env.user.name
+            self.message_post(partner_ids=users_in_group_gen.mapped('partner_id').ids,body= mensaje_autorizado, subject="Firmado", email_from=False)
+            
             mensaje = "Solicitud de firma"
             self.message_post(partner_ids=users_in_group_gen.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
 
@@ -228,7 +252,9 @@ class PurchaseOrder(models.Model):
             
             puesto_trabajo = self.create_uid.partner_id.function or '  '
             
-            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            name = self.env.user.name
+            
+            texto_completo = f"{fecha_hora_actual} \n {name} \n {puesto_trabajo}"
             
             self.administrative_address_date_job = texto_completo
             
@@ -240,7 +266,8 @@ class PurchaseOrder(models.Model):
         users_in_group_gen = group.users
         if self.env.user.partner_id.id in users_in_group_gen.mapped('partner_id').ids:
             self.estado_autorizado = 'direccion_general_firmado'
-            mensaje = "Orden de compra autorizada"
+
+            mensaje = "Orden de compra autorizada " + group.name + ' por ' + self.env.user.name
             self.message_post(partner_ids=users_in_group_gen.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
             
             ahora_utc = fields.Datetime.now()
@@ -254,7 +281,9 @@ class PurchaseOrder(models.Model):
             
             puesto_trabajo = self.create_uid.partner_id.function or '  '
             
-            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            name = self.env.user.name
+            
+            texto_completo = f"{fecha_hora_actual} \n {name} \n {puesto_trabajo}"
             
             self.au_gnrl_date_job = texto_completo
             self.button_confirm()
