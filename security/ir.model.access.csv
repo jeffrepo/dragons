@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_l10n_gt_dragons_l10n_gt_dragons,l10n_gt_dragons.l10n_gt_dragons,model_l10n_gt_dragons_l10n_gt_dragons,base.group_user,1,1,1,1
+dragons.access_stock_location_wizard,access_stock_location_wizard,dragons.model_stock_location_wizard,base.group_user,1,1,1,1
