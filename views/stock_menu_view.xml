@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <menuitem
+        id="stock_location_custom_action"
+        name="Reporte de ubicaciones personalizado"
+        parent="stock.menu_warehouse_report"
+        sequence="5"
+        action="dragons.action_open_report_location_wizard"/>
+
+</odoo>

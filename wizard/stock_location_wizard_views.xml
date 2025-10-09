@@ -1,0 +1,60 @@
+<odoo>
+    <!-- Vista formulario del wizard -->
+    <record id="stock_location_wizard_view_form" model="ir.ui.view">
+        <field name="name">stock.location.wizard.view.form</field>
+        <field name="model">stock.location.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Ubicaciones">
+                
+                <div class="alert alert-info" role="alert">
+                    <strong>Información:</strong> Este wizard mostrará todas las ubicaciones del sistema sin restricciones de seguridad.
+                    <br/>
+                    Haga clic en 'Obtener valores' para cargar todos los registros.
+                </div>
+                
+                <footer>
+                    <button string="Obtener valores" name="get_values" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista lista del wizard (similar a la original de stock.quant) -->
+    <record id="stock_location_wizard_tree_view" model="ir.ui.view">
+        <field name="name">stock.location.wizard.tree.view</field>
+        <field name="model">stock.location.wizard</field>
+        <field name="arch" type="xml">
+            <list editable="bottom" create="0" edit="0" delete="0">
+                <field name="location_id" string="Ubicación" options="{'no_create': True}"/>
+                <field name="product_id" string="Producto" options="{'no_create': True}"/>
+                <field name="product_categ_id" string="Categoría Producto" optional="hide"/>
+                <field name="storage_category_id" string="Categoría Almacenamiento" optional="hide"/>
+                <field name="lot_id" string="Lote/Serie" groups="stock.group_production_lot" options="{'no_create': True}"/>
+                <field name="inventory_quantity_auto_apply" string="Cantidad Real" sum="Total Real"/>
+                <field name="reserved_quantity" string="Cantidad Reservada" sum="Total Reservada"/>
+                <field name="available_quantity" string="Cantidad Disponible" sum="Total Disponible"/>
+                <field name="product_uom_id" string="Unidad de Medida" groups="uom.group_uom"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Acción para abrir el wizard -->
+    <record id="action_open_report_location_wizard" model="ir.actions.act_window">
+        <field name="name">Informe de ubicaciones personalizado</field>
+        <field name="res_model">stock.location.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="dragons.stock_location_wizard_view_form"/>
+        <field name="target">new</field>
+        <field name="context">{'create': False}</field>
+    </record>
+
+    <!-- Acción para la vista lista del wizard -->
+    <record id="action_stock_location_wizard_tree" model="ir.actions.act_window">
+        <field name="name">Todas las Ubicaciones</field>
+        <field name="res_model">stock.location.wizard</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="dragons.stock_location_wizard_tree_view"/>
+        <field name="target">current</field>
+    </record>
+</odoo>
