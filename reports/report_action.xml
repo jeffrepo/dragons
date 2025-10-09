@@ -14,6 +14,7 @@
             <field name="margin_right">0</field>
         </record>
 
+        <!-- imprimiendo de forma horizontal -->
         <record id="custom_purchase_order_paperformat_landscape" model="report.paperformat">
             <field name="name">Custom Purchase Order Format Landscape</field>
             <field name="format">A4</field>
@@ -30,7 +31,8 @@
             <field name="name">Custom Purchase Order Format English version Landscape</field>
             <field name="model">purchase.order</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="report_name">dragons.order_purchase_report_pdf_landscape</field>
+            <!-- imprimiendo de forma horizontal -->
+            <field name="report_name">dragons.order_purchase_report_pdf_landscape</field> 
             <field name="report_file">dragons.order_purchase_report_pdf_landscape</field>
             <field name="paperformat_id" ref="custom_purchase_order_paperformat_landscape"/>
             <field name="binding_model_id" ref="purchase.model_purchase_order"/>
@@ -64,6 +66,7 @@
             <field name="name">Formato de orden de compra personalizado "Horizontal"</field>
             <field name="model">purchase.order</field>
             <field name="report_type">qweb-pdf</field>
+            <!-- imprimiendo de forma horizontal -->
             <field name="report_name">dragons.order_purchase_report_spanish_pdf_landscape</field>
             <field name="report_file">dragons.order_purchase_report_spanish_pdf_landscape</field>
             <field name="paperformat_id" ref="custom_purchase_order_paperformat_landscape"/>
