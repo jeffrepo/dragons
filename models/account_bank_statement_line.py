@@ -23,13 +23,14 @@ class AccountBankStatementLine(models.Model):
     #         rec.authorize_cash_conciliation = self.env.user.authorize_cash_conciliation
 
     # Agregar método faltante para evitar el error
-    def _thread_to_store(self, store, **kwargs):
-        return False
+    # def _thread_to_store(self, store, **kwargs):
+    #     return False
     
     
     @api.model_create_multi
     def create(self, vals_list):
         # 🔎 VALIDACIÓN ANTES DE CREAR
+        print(f"Que es self in create() {self}")
         for vals in vals_list:
             journal_id = vals.get("journal_id")
             
@@ -42,17 +43,17 @@ class AccountBankStatementLine(models.Model):
                     running_balance = existing_balance + vals.get("amount", 0.0)
 
                     if journal.limit and running_balance > journal.limit:
-                        self.env.cr.commit()
-                        lines = self.env['account.bank.statement.line'].search([('application_status', '=', 'nuevo')])
-                        for line in lines:
-                            line.unlink()
-                            self.env.cr.commit()
+                        # self.env.cr.commit()
+                        # lines = self.env['account.bank.statement.line'].search([('application_status', '=', 'nuevo')])
+                        # for line in lines:
+                        #     line.unlink()
+                        #     self.env.cr.commit()
+                        vals_list = []
                         raise UserError(
                             "😬 Esta conciliación no se podrá permitir, "
                             "se ha llegado al límite del diario"
                         )
-
-        # 🔁 Si todo bien → llamar al create original
+            print(f"Que es vals_list in create {vals_list}")
         return super(AccountBankStatementLine, self).create(vals_list)
 
     def action_save_close(self):
@@ -68,7 +69,7 @@ class AccountBankStatementLine(models.Model):
                 if journal.limit and running_balance > journal.limit:
                     print("Save/Close Line ", line)
                     
-                    # Eliminar solo la línea actual, no todas
+                    #Eliminar solo la línea actual, no todas
                     line_to_delete = self.env['account.bank.statement.line'].browse(line.id)
                     if line_to_delete.exists():
                         line_to_delete.unlink()
@@ -77,7 +78,8 @@ class AccountBankStatementLine(models.Model):
                     raise UserError(
                         "😬 Esta conciliación no se podrá permitir, "
                         "se ha llegado al límite del diario"
-                    ) 
+                    )
+                 
         
         return super(AccountBankStatementLine, self).action_save_close()
 
@@ -147,6 +149,3 @@ class AccountBankStatementLine(models.Model):
         self.application_status = 'autorizado'
         return "Permiso autorizado"
     
-    # def return_permission(self):
-    #     self.application_status = 'pendiente'
-    #     return "xx"

@@ -66,7 +66,7 @@
                                 </tr>
                                 <tr>
                                     <td class="header-cell">Requester</td>
-                                    <td class="data-cell" t-att-style="'min-width: 25px;' if not o.x_studio_empleado_comprador else ''"><t t-esc="o.x_studio_empleado_comprador.x_name if o.x_studio_empleado_comprador else ''"/></td>
+                                    <td class="data-cell" t-att-style="'min-width: 25px;' if not o.x_studio_empleado_comprador else ''"><t t-esc="o.x_studio_empleado_comprador.name if o.x_studio_empleado_comprador else ''"/></td>
                                 </tr>
                             </table>
                             <table class="report-table">
@@ -280,18 +280,18 @@
                                         <th class="header-cell" rowspan="2">Responsible</th>
                                         <th class="header-cell">Prepared by Manager</th>
                                         <th class="header-cell">Review Project Manager</th>
-                                        <th class="header-cell">Operations Management <br/> Vo.Bo</th>
-                                        <th class="header-cell">Legal address <br/> Vo.Bo</th>
-                                        <th class="header-cell">Administrative address <br/> Vo.Bo</th>
-                                        <th class="header-cell">authorizes general direction <br/> Vo.Bo</th>
+                                        <th class="header-cell">Operations Management </th>
+                                        <th class="header-cell">Legal address </th>
+                                        <th class="header-cell">Administrative address</th>
+                                        <th class="header-cell">authorizes general direction</th>
                                     </tr>
                                     <tr>
                                         <th class="header-cell">DN/DO</th>
-                                        <th class="header-cell">DDN/DDO</th>
-                                        <th class="header-cell">GACN</th>
-                                        <th class="header-cell">DL</th>
+                                        <th class="header-cell">Review by</th>
+                                        <th class="header-cell">Vo.Bo</th>
+                                        <th class="header-cell">Vo.Bo</th>
                                         <th class="header-cell">DA</th>
-                                        <th class="header-cell">DG</th>
+                                        <th class="header-cell">Approved by</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -301,9 +301,15 @@
                                             <br/>
                                             <br/>
                                             <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
                                             <t t-esc="o.prepared_manager_date_job"/>
                                         </td>
                                         <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
                                             <br/>
                                             <br/>
                                             <br/>
@@ -313,9 +319,15 @@
                                             <br/>
                                             <br/>
                                             <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
                                             <t t-esc="o.op_managment_date_job"/>
                                         </td>
                                         <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
                                             <br/>
                                             <br/>
                                             <br/>
@@ -325,9 +337,15 @@
                                             <br/>
                                             <br/>
                                             <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
                                             <t t-esc="o.administrative_address_date_job"/>
                                         </td>
                                         <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
                                             <br/>
                                             <br/>
                                             <br/>

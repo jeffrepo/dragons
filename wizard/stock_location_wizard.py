@@ -22,6 +22,9 @@ class StockLocationWizard(models.TransientModel):
         user_location_ids = self.env.user.location_ids.ids if self.env.user.location_ids else []
         all_quants = self.env['stock.quant'].sudo().search([('location_id', 'in', user_location_ids)])
         
+        # Limpiar registros existentes en el wizard
+        self.search([]).unlink()
+        
         # Crear registros en el wizard para cada quant
         wizard_records = []
         for quant in all_quants:
