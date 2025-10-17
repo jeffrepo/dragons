@@ -19,9 +19,9 @@
             <field name="name">Custom Purchase Order Format Landscape</field>
             <field name="format">A4</field>
             <field name="orientation">Landscape</field>
-            <field name="header_spacing">45</field>  <!-- Esto elimina el espacio del header -->
+            <field name="header_spacing">28</field>  <!-- Esto elimina el espacio del header -->
             <field name="dpi">90</field>
-            <field name="margin_top">48</field>
+            <field name="margin_top">30</field>
             <field name="margin_bottom">0</field>
             <field name="margin_left">0</field>
             <field name="margin_right">0</field>
