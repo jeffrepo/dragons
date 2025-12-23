@@ -28,6 +28,46 @@ class PurchaseOrder(models.Model):
     administrative_address_date_job = fields.Char(string="dirección administrativ Fecha, hora y puesto", readonly=True)
     au_gnrl_date_job = fields.Char(string="Autoriza dirección general Fecha, hora y puesto", readonly=True)
 
+    # DOCUMENTACIÓN INICIAL
+    supplier_proposal_attached = fields.Binary(attachment=True, string="PROPUESTA DEL PROVEEDOR ADJUNTA", copy=False)
+    quality_requeriments_attached = fields.Binary(attachment=True, string="REQUISITOS DE CALIDAD ADJUNTOS", copy=False)
+    attached_technical_requirements = fields.Binary(attachment=True, string="REQUISITOS TÉCNICOS ADJUNTOS", copy=False)
+    attached_judgment_record = fields.Binary(attachment=True, string="ACTA DE FALLO ADJUNTA", copy=False)
+    copy_supplier_attached = fields.Binary(attachment=True, string="COPIA DE LA INSCRIPCIÓN DEL PROVEEDOR ANTE EL REPSE ADJUNTA", copy=False)
+
+    # DOCUMENTACIÓN INTERMEDIA
+    supplier_contract_attached = fields.Binary(attachment=True, string="CONTRATO CON EL PROVEEDOR ADJUNTA", copy=False)
+    cfdi_preview_attached = fields.Binary(attachment=True, string="CFDI O VISTA PREVIA ADJUNTA", copy=False)
+    
+    # DOCUMENTACIÓN FINAL
+    bid_contract_attached = fields.Binary(attachment=True, string="CONTRATO DE LICITACION CON EL CLIENTE ADJUNTO", copy=False)
+    operation_evidence_attached = fields.Binary(attachment=True, string="EVIDENCIA DE LA OPERACIÓN (FOTOS Y RECEPCIÓN DE BIENES Y SERVICIOS) ADJUNTA", copy=False)
+    professional_license_attached = fields.Binary(attachment=True, string="CÉDULA PROFESIONAL POR SERVICIOS PROFESIONALES ADJUNTA", copy=False)
+
+    @api.model
+    def write(self, vals):
+        # Mapeo de campos Binary a Boolean
+        binary_to_boolean_map = {
+            'supplier_proposal_attached': 'x_studio_propuesta_del_proveedor_adjunta',
+            'quality_requeriments_attached': 'x_studio_requisitos_de_calidad_adjuntos',
+            'attached_technical_requirements': 'x_studio_requisitos_tcnicos_adjuntos',
+            'attached_judgment_record': 'x_studio_proveedor_aprobado_por_el_departamento_de_calidad',
+            'copy_supplier_attached': 'x_studio_proveedor_de_calidad_comercial',
+        }
+        
+        # Verificar si se está actualizando algún campo Binary
+        for binary_field, boolean_field in binary_to_boolean_map.items():
+            if binary_field in vals:
+                # Si el valor no es None o vacío, marcar como True
+                if vals.get(binary_field):
+                    vals[boolean_field] = True
+                # Si es None o vacío, marcar como False
+                else:
+                    vals[boolean_field] = False
+        
+        # Llamar al método write original
+        return super(PurchaseOrder, self).write(vals)
+
     def get_delivery_time_breakdown(self):
         self.ensure_one()
         if not self.create_date or not self.date_planned:

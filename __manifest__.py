@@ -31,7 +31,7 @@
         'reports/order_purchase_report_spanish_pdf_view_landscape.xml',
         'reports/order_purchase_report_spanish_pdf_view.xml',
         'reports/report_action.xml',
-        'views/account_bank_statement_views.xml',
+        # 'views/account_bank_statement_views.xml',
         'views/account_journal_views.xml',
         'views/purchase_views.xml',
         'views/res_users_views.xml',
