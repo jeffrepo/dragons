@@ -39,6 +39,30 @@
                         <field name="administrative_address_date_job"/>
                         <field name="au_gnrl_date_job"/>
                     </group>
+
+                    
+                    <!-- DOCUMENTACIÓN INICIAL -->
+                    <group string="Documentación Inicial">
+                        <field name="supplier_proposal_attached"/>
+                        <field name="quality_requeriments_attached"/>
+                        <field name="attached_technical_requirements"/>
+                        <field name="attached_judgment_record"/>
+                        <field name="copy_supplier_attached"/>
+                    </group>
+                    
+                    <!-- DOCUMENTACIÓN INTERMEDIA -->
+                    <group string="Documentación Intermedia">
+                        <field name="supplier_contract_attached"/>
+                        <field name="cfdi_preview_attached"/>
+                    </group>
+                    
+                    <!-- DOCUMENTACIÓN FINAL -->
+                    <group string="Documentación Final">
+                        <field name="bid_contract_attached"/>
+                        <field name="operation_evidence_attached"/>
+                        <field name="professional_license_attached"/>
+                    </group>
+                    
                 </group>
             </field>
         </record>
