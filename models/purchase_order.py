@@ -37,12 +37,24 @@ class PurchaseOrder(models.Model):
 
     # DOCUMENTACIÓN INTERMEDIA
     supplier_contract_attached = fields.Binary(attachment=True, string="CONTRATO CON EL PROVEEDOR ADJUNTA", copy=False)
+    supplier_contract_check = fields.Boolean(string="Contrato con el proveedor adjunta", default=False)
+
     cfdi_preview_attached = fields.Binary(attachment=True, string="CFDI O VISTA PREVIA ADJUNTA", copy=False)
+    cfdi_preview_check = fields.Boolean(string="CFDI O VISTA PREVIA ADJUNTA check ", copy=False, default=False)
     
+    emails_check = fields.Boolean(string="Correos electronicos", copy=False, default=False)
+
     # DOCUMENTACIÓN FINAL
     bid_contract_attached = fields.Binary(attachment=True, string="CONTRATO DE LICITACION CON EL CLIENTE ADJUNTO", copy=False)
+    tender_contract_check = fields.Boolean(string="Contrato de licitacion con el cliente adjunto check ", copy=False, default=False)
+
     operation_evidence_attached = fields.Binary(attachment=True, string="EVIDENCIA DE LA OPERACIÓN (FOTOS Y RECEPCIÓN DE BIENES Y SERVICIOS) ADJUNTA", copy=False)
+    operation_evidence_check = fields.Boolean(string="Evidencia de la operacion ...", copy=False, default=False )
+    
+    quality_dossier_check = fields.Boolean(string="Dossier de calidad", copy=False, default=False)
+
     professional_license_attached = fields.Binary(attachment=True, string="CÉDULA PROFESIONAL POR SERVICIOS PROFESIONALES ADJUNTA", copy=False)
+    professional_license_check = fields.Boolean(string="Cedula profesional ...", copy=False, default=False )
 
     @api.model
     def write(self, vals):
@@ -53,6 +65,11 @@ class PurchaseOrder(models.Model):
             'attached_technical_requirements': 'x_studio_requisitos_tcnicos_adjuntos',
             'attached_judgment_record': 'x_studio_proveedor_aprobado_por_el_departamento_de_calidad',
             'copy_supplier_attached': 'x_studio_proveedor_de_calidad_comercial',
+            'supplier_contract_attached': 'supplier_contract_check',
+            'cfdi_preview_attached': 'cfdi_preview_check',
+            'bid_contract_attached': 'tender_contract_check',
+            'operation_evidence_attached': 'operation_evidence_check',
+            'professional_license_attached':'professional_license_check',
         }
         
         # Verificar si se está actualizando algún campo Binary
