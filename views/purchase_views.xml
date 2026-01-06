@@ -53,14 +53,21 @@
                     <!-- DOCUMENTACIÓN INTERMEDIA -->
                     <group string="Documentación Intermedia">
                         <field name="supplier_contract_attached"/>
+                        <field name="supplier_contract_check" readonly="1"/>
                         <field name="cfdi_preview_attached"/>
+                        <field name="cfdi_preview_check" readonly="1"/>
+                        <field name="emails_check"/>
                     </group>
                     
                     <!-- DOCUMENTACIÓN FINAL -->
                     <group string="Documentación Final">
                         <field name="bid_contract_attached"/>
+                        <field name="tender_contract_check" readonly="1"/>
                         <field name="operation_evidence_attached"/>
+                        <field name="operation_evidence_check" readonly="1"/>
+                        <field name="quality_dossier_check"/>
                         <field name="professional_license_attached"/>
+                        <field name="professional_license_check" readonly="1"/>
                     </group>
                     
                 </group>
