@@ -14,17 +14,20 @@ class PurchaseOrder(models.Model):
                                           ('aut_pago', 'Autorizacion pago'),
                                           ('pago_autorizado','Pago autorizad'),
                                           ('firma_gestor_proyecto','Firma gestor proyecto'),
-                                         ('solicitud_firma_jefep','Solicitud firma jefe proyecto'),
+                                          ('solicitud_firma_jefep','Solicitud firma jefe proyecto'),
                                           ('solicitud_firma_op','Solicitud firma direccion operaciones'),
-                                         ('solicitud_firma_legal','Solicitud firma direccion legal'),
+                                          ('solicitud_firma_legal','Solicitud firma direccion legal'),
+                                          ('solicitud_firma_contabilidad', 'Solicitud firma contabilidad'),
                                           ('solicitud_firma_direccion_admin','Solicitud firma direccion administrativa'),
-                                         ('solicitud_firma_direccion_general','Solicitud firma direccion general'),
-                                         ('direccion_general_firmado','Direccion general firmado')],string='Estado autorizado')
+                                          ('solicitud_firma_direccion_general','Solicitud firma direccion general'),
+                                          ('direccion_general_firmado','Direccion general firmado')]
+                                          ,string='Estado autorizado')
     
     prepared_manager_date_job = fields.Char(string="Elabora gestor Fecha, hora y puesto", readonly=True)
     review_project_manager_date_job = fields.Char(string="Jefe de proyecto Fecha, hora y puesto", readonly=True)
     op_managment_date_job = fields.Char(string="Dirección de operaciones Fecha, hora y puesto", readonly=True)
     legal_address_date_job = fields.Char(string="dirección legal Fecha, hora y puesto", readonly=True)
+    accounting_date_job = fields.Char(string="Contabilidad Fecha, hora y puesto",readonly=True)
     administrative_address_date_job = fields.Char(string="dirección administrativ Fecha, hora y puesto", readonly=True)
     au_gnrl_date_job = fields.Char(string="Autoriza dirección general Fecha, hora y puesto", readonly=True)
 
@@ -255,6 +258,38 @@ class PurchaseOrder(models.Model):
 
     def firma_direccion_legal(self):
         group = self.env.ref('dragons.group_dragon_direccion_legal')
+        group_gen = self.env.ref('dragons.group_dragon_accounting')
+        users_in_group_admin = group.users
+        users_in_group_gen = group_gen.users
+        if self.env.user.partner_id.id in users_in_group_admin.mapped('partner_id').ids:
+            self.estado_autorizado = 'solicitud_firma_direccion_admin'
+            mensaje_autorizado = "Firma " + group.name + ' por ' + self.env.user.name
+            self.message_post(partner_ids=users_in_group_gen.mapped('partner_id').ids,body= mensaje_autorizado, subject="Firmado", email_from=False)
+                        
+            mensaje = "Solicitud de firma"
+            self.message_post(partner_ids=users_in_group_gen.mapped('partner_id').ids,body= mensaje, subject="Firmar documento", email_from=False)
+            
+            ahora_utc = fields.Datetime.now()
+
+            user_tz = self.env.user.tz or 'UTC'
+            tz = pytz.timezone(user_tz)
+
+            ahora_local = ahora_utc.astimezone(tz)
+
+            fecha_hora_actual = ahora_local.strftime('%d/%m/%Y %H:%M:%S')
+            
+            puesto_trabajo = self.create_uid.partner_id.function or '  '
+            
+            name = self.env.user.name
+            
+            texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
+            
+            self.legal_address_date_job = texto_completo
+        else:
+            raise UserError('No tiene permiso para firmar')
+        
+    def signed_accounting(self):
+        group = self.env.ref('dragons.group_dragon_accounting')
         group_gen = self.env.ref('dragons.group_dragon_direccion_admin')
         users_in_group_admin = group.users
         users_in_group_gen = group_gen.users
@@ -284,7 +319,9 @@ class PurchaseOrder(models.Model):
             self.legal_address_date_job = texto_completo
         else:
             raise UserError('No tiene permiso para firmar')
-
+        
+    
+        
     def firma_direccion_admin(self):
         group = self.env.ref('dragons.group_dragon_direccion_admin')
         group_gen = self.env.ref('dragons.group_dragon_direccion_general')

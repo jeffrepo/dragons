@@ -275,6 +275,7 @@
                                         <th class="header-cell">Revisa Jefe de proyecto</th>
                                         <th class="header-cell">Dirección de operaciones </th>
                                         <th class="header-cell">Dirección legal </th>
+                                        <th class="header-cell">Departamento de contabilidad</th>
                                         <th class="header-cell">Dirección administrativa </th>
                                         <th class="header-cell">Autoriza dirección general </th>
                                     </tr>
@@ -283,6 +284,7 @@
                                         <th class="header-cell">Revisado por</th>
                                         <th class="header-cell">Vo.Bo</th>
                                         <th class="header-cell">Vo.Bo</th>
+                                        <th class="header-cell">Vo.Bo </th>
                                         <th class="header-cell">DA</th>
                                         <th class="header-cell">Aprobado por</th>
                                     </tr>
@@ -325,6 +327,15 @@
                                             <br/>
                                             <br/>
                                             <t t-esc="o.legal_address_date_job"/>
+                                        </td>
+                                        <td class="data-cell">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <t t-esc="o.accounting_date_job"/>
                                         </td>
                                         <td class="data-cell">
                                             <br/>
