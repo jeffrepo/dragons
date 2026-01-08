@@ -45,10 +45,17 @@
                     <!-- DOCUMENTACIÓN INICIAL -->
                     <group string="Documentación Inicial">
                         <field name="supplier_proposal_attached"/>
+                        <field name="supplier_proposal_check" readonly="1"/>
                         <field name="quality_requeriments_attached"/>
+                        <field name="quality_requeriments_check" readonly="1"/>
                         <field name="attached_technical_requirements"/>
+                        <field name="attached_technical_check" readonly="1"/>
+                        <field name="quality_supplier_check"/>
+                        <field name="commercial_quality_supplier_check"/>
                         <field name="attached_judgment_record"/>
+                        <field name="attached_judment_check" readonly="1"/>
                         <field name="copy_supplier_attached"/>
+                        <field name="copy_supplier_check" readonly="1"/>
                     </group>
                     
                     <!-- DOCUMENTACIÓN INTERMEDIA -->

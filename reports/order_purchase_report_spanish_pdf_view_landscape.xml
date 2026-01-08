@@ -242,28 +242,28 @@
                             <table style="width:70%; border:1px solid Transparent">
                                 <tr style="border:1px solid Transparent">
                                     <td>Propuesta del proveedor adjunta</td>
-                                    <td>SI( <t t-if="o.x_studio_propuesta_del_proveedor_adjunta">✓</t> )</td>
-                                    <td>NO( <t t-if="not o.x_studio_propuesta_del_proveedor_adjunta">✓</t> )</td>
+                                    <td>SI( <t t-if="o.supplier_proposal_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.supplier_proposal_check">✓</t> )</td>
                                 </tr>
                                 <tr style="border:1px solid Transparent">
                                     <td>Requisitos de calidad adjuntos</td>
-                                    <td>SI( <t t-if="o.x_studio_requisitos_de_calidad_adjuntos">✓</t> )</td>
-                                    <td>NO( <t t-if="not o.x_studio_requisitos_de_calidad_adjuntos">✓</t> )</td>
+                                    <td>SI( <t t-if="o.quality_requeriments_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.quality_requeriments_check">✓</t> )</td>
                                 </tr>
                                 <tr style="border:1px solid Transparent">
                                     <td>Requisitos técnicos adjuntos</td>
-                                    <td>SI( <t t-if="o.x_studio_requisitos_tcnicos_adjuntos">✓</t> )</td>
-                                    <td>NO( <t t-if="not o.x_studio_requisitos_tcnicos_adjuntos">✓</t> )</td>
+                                    <td>SI( <t t-if="o.attached_technical_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.attached_technical_check">✓</t> )</td>
                                 </tr>
                                 <tr style="border:1px solid Transparent">
                                     <td>Proveedor aprobado por el departamento de control de calidad</td>
-                                    <td>SI( <t t-if="o.x_studio_proveedor_aprobado_por_el_departamento_de_calidad">✓</t> )</td>
-                                    <td>NO( <t t-if="not o.x_studio_proveedor_aprobado_por_el_departamento_de_calidad">✓</t> )</td>
+                                    <td>SI( <t t-if="o.quality_supplier_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.quality_supplier_check">✓</t> )</td>
                                 </tr>
                                 <tr style="border:1px solid Transparent">
                                     <td>Proveedor de calidad comercial</td>
-                                    <td>SI( <t t-if="o.x_studio_requisitos_de_calidad_adjuntos">✓</t> )</td>
-                                    <td>NO( <t t-if="not o.x_studio_requisitos_de_calidad_adjuntos">✓</t> )</td>
+                                    <td>SI( <t t-if="o.commercial_quality_supplier_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.commercial_quality_supplier_check">✓</t> )</td>
                                 </tr>
                             </table>
                             <br/>
