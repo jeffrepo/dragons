@@ -33,14 +33,27 @@ class PurchaseOrder(models.Model):
 
     # DOCUMENTACIÓN INICIAL
     supplier_proposal_attached = fields.Binary(attachment=True, string="PROPUESTA DEL PROVEEDOR ADJUNTA", copy=False)
+    supplier_proposal_check = fields.Boolean(string="Propuesta del proveedor check", default=False)
+
     quality_requeriments_attached = fields.Binary(attachment=True, string="REQUISITOS DE CALIDAD ADJUNTOS", copy=False)
+    quality_requeriments_check = fields.Boolean(string="Requisitos de calidad adjuntos", default=False)
+
     attached_technical_requirements = fields.Binary(attachment=True, string="REQUISITOS TÉCNICOS ADJUNTOS", copy=False)
+    attached_technical_check = fields.Boolean(string="Requisitos tecnicos adjuntos", default=False)
+
+    quality_supplier_check = fields.Boolean(string="Proveedor aprobado por el departamento de calidad", copy=False, default=False)
+
+    commercial_quality_supplier_check = fields.Boolean(string="Proveedor de calidad comercial", copy=False, default=False)
+
     attached_judgment_record = fields.Binary(attachment=True, string="ACTA DE FALLO ADJUNTA", copy=False)
+    attached_judment_check = fields.Boolean(string="Actas de fallo adjunta", default=False)
+
     copy_supplier_attached = fields.Binary(attachment=True, string="COPIA DE LA INSCRIPCIÓN DEL PROVEEDOR ANTE EL REPSE ADJUNTA", copy=False)
+    copy_supplier_check = fields.Boolean(string="Copia de la inscripcion del proveedor ante el repse adjunta", default=False)
 
     # DOCUMENTACIÓN INTERMEDIA
     supplier_contract_attached = fields.Binary(attachment=True, string="CONTRATO CON EL PROVEEDOR ADJUNTA", copy=False)
-    supplier_contract_check = fields.Boolean(string="Contrato con el proveedor adjunta", default=False)
+    supplier_contract_check = fields.Boolean(string="Contrato con el proveedor adjunta check", default=False)
 
     cfdi_preview_attached = fields.Binary(attachment=True, string="CFDI O VISTA PREVIA ADJUNTA", copy=False)
     cfdi_preview_check = fields.Boolean(string="CFDI O VISTA PREVIA ADJUNTA check ", copy=False, default=False)
