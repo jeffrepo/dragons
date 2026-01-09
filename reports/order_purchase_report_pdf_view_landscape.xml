@@ -157,7 +157,7 @@
                                         <t t-foreach="subtotal.get('tax_groups', [])" t-as="tax_group">
                                             <tr>
                                                 <td class="header-cell" colspan="7" style="text-align: right"><strong><t t-esc="tax_group.get('group_name', 'Sin nombre')"/></strong></td>
-                                                <td class="header-cell" style="text-align: right"><strong><t t-esc="tax_group.get('tax_amount_currency', 0)"/></strong></td>
+                                                <td class="header-cell" style="text-align: right"><strong><t t-esc="o.currency_id.format(tax_group.get('tax_amount_currency', 0))"/></strong></td>
                                             </tr>
                                         </t>
                                     </tr>
