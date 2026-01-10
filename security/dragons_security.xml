@@ -86,7 +86,7 @@
     </record>
 
     <record id="group_dragon_accounting" model="res.groups">
-        <field name="name">Firma contabilidad</field>
+        <field name="name">Contabilidad</field>
         <field name="comment">Flujo de aprobación compra</field>
     </record>
 
