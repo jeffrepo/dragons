@@ -249,27 +249,27 @@
                             <table style="width:70%; border:1px solid Transparent">
                                 <tr style="border:1px solid Transparent">
                                     <td>Attached Provider Proposal</td>
-                                    <td>SI( <t t-if="o.supplier_proposal_check">✓</t> )</td>
+                                    <td>YES( <t t-if="o.supplier_proposal_check">✓</t> )</td>
                                     <td>NO( <t t-if="not o.supplier_proposal_check">✓</t> )</td>
                                 </tr>
                                 <tr style="border:1px solid Transparent">
                                     <td>Attached Quality Requirements</td>
-                                    <td>SI( <t t-if="o.quality_requeriments_check">✓</t> )</td>
+                                    <td>YES( <t t-if="o.quality_requeriments_check">✓</t> )</td>
                                     <td>NO( <t t-if="not o.quality_requeriments_check">✓</t> )</td>
                                 </tr>
                                 <tr style="border:1px solid Transparent">
                                     <td>Attached Technical Requirements</td>
-                                    <td>SI( <t t-if="o.attached_technical_check">✓</t> )</td>
+                                    <td>YES( <t t-if="o.attached_technical_check">✓</t> )</td>
                                     <td>NO( <t t-if="not o.attached_technical_check">✓</t> )</td>
                                 </tr>
                                 <tr style="border:1px solid Transparent">
                                     <td>Supplier approved by Quality Assurance </td>
-                                    <td>SI( <t t-if="o.quality_supplier_check">✓</t> )</td>
+                                    <td>YES( <t t-if="o.quality_supplier_check">✓</t> )</td>
                                     <td>NO( <t t-if="not o.quality_supplier_check">✓</t> )</td>
                                 </tr>
                                 <tr style="border:1px solid Transparent">
                                     <td>Commercial Grade Supplier</td>
-                                    <td>SI( <t t-if="o.commercial_quality_supplier_check">✓</t> )</td>
+                                    <td>YES( <t t-if="o.commercial_quality_supplier_check">✓</t> )</td>
                                     <td>NO( <t t-if="not o.commercial_quality_supplier_check">✓</t> )</td>
                                 </tr>
                             </table>

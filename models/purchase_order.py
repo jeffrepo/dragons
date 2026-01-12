@@ -275,7 +275,7 @@ class PurchaseOrder(models.Model):
         users_in_group_admin = group.users
         users_in_group_gen = group_gen.users
         if self.env.user.partner_id.id in users_in_group_admin.mapped('partner_id').ids:
-            self.estado_autorizado = 'solicitud_firma_direccion_admin'
+            self.estado_autorizado = 'solicitud_firma_contabilidad'
             mensaje_autorizado = "Firma " + group.name + ' por ' + self.env.user.name
             self.message_post(partner_ids=users_in_group_gen.mapped('partner_id').ids,body= mensaje_autorizado, subject="Firmado", email_from=False)
                         
@@ -329,7 +329,7 @@ class PurchaseOrder(models.Model):
             
             texto_completo = f"{fecha_hora_actual} \n {puesto_trabajo}"
             
-            self.legal_address_date_job = texto_completo
+            self.accounting_date_job = texto_completo
         else:
             raise UserError('No tiene permiso para firmar')
         
@@ -426,6 +426,7 @@ class PurchaseOrder(models.Model):
             'solicitud_firma_jefep': 'dragons.group_dragon_jefe_proyecto',
             'solicitud_firma_op': 'dragons.group_dragon_direccion_operaciones',
             'solicitud_firma_legal': 'dragons.group_dragon_direccion_legal',
+            'solicitud_firma_contabilidad': 'dragons.group_dragon_accounting',
             'solicitud_firma_direccion_admin': 'dragons.group_dragon_direccion_admin',
             'solicitud_firma_direccion_general': 'dragons.group_dragon_direccion_general',
         }
