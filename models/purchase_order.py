@@ -72,34 +72,34 @@ class PurchaseOrder(models.Model):
     professional_license_attached = fields.Binary(attachment=True, string="CÉDULA PROFESIONAL POR SERVICIOS PROFESIONALES ADJUNTA", copy=False)
     professional_license_check = fields.Boolean(string="Cedula profesional ...", copy=False, default=False )
 
-    @api.model
-    def write(self, vals):
-        # Mapeo de campos Binary a Boolean
+    def _update_attachment_checks_vals(self, vals):
         binary_to_boolean_map = {
-            'supplier_proposal_attached': 'x_studio_propuesta_del_proveedor_adjunta',
-            'quality_requeriments_attached': 'x_studio_requisitos_de_calidad_adjuntos',
-            'attached_technical_requirements': 'x_studio_requisitos_tcnicos_adjuntos',
-            'attached_judgment_record': 'x_studio_proveedor_aprobado_por_el_departamento_de_calidad',
-            'copy_supplier_attached': 'x_studio_proveedor_de_calidad_comercial',
+            'supplier_proposal_attached': 'supplier_proposal_check',
+            'quality_requeriments_attached': 'quality_requeriments_check',
+            'attached_technical_requirements': 'attached_technical_check',
+            'attached_judgment_record': 'attached_judment_check',
+            'copy_supplier_attached': 'copy_supplier_check',
             'supplier_contract_attached': 'supplier_contract_check',
             'cfdi_preview_attached': 'cfdi_preview_check',
             'bid_contract_attached': 'tender_contract_check',
             'operation_evidence_attached': 'operation_evidence_check',
-            'professional_license_attached':'professional_license_check',
+            'professional_license_attached': 'professional_license_check',
         }
-        
-        # Verificar si se está actualizando algún campo Binary
+
         for binary_field, boolean_field in binary_to_boolean_map.items():
             if binary_field in vals:
-                # Si el valor no es None o vacío, marcar como True
-                if vals.get(binary_field):
-                    vals[boolean_field] = True
-                # Si es None o vacío, marcar como False
-                else:
-                    vals[boolean_field] = False
-        
-        # Llamar al método write original
-        return super(PurchaseOrder, self).write(vals)
+                vals[boolean_field] = bool(vals.get(binary_field))
+
+        return vals
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        vals_list = [self._update_attachment_checks_vals(vals) for vals in vals_list]
+        return super().create(vals_list)
+
+    def write(self, vals):
+        vals = self._update_attachment_checks_vals(vals)
+        return super().write(vals)
 
     def get_delivery_time_breakdown(self):
         self.ensure_one()

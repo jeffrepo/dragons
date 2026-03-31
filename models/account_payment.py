@@ -26,7 +26,7 @@ class AccountPayment(models.Model):
     
     def autorizar_grupo1(self):
         self.estado_autorizado = 'grupo1'
-        mensaje = "Autorizado por: " + str(self.env.user.name)
+        mensaje = "Autorizacion solicitada por: " + str(self.env.user.name)
         self.message_post(partner_ids=False,body= mensaje, subject="Autorizacion", email_from=False)
 
     def autorizar_grupo2(self):
@@ -37,7 +37,7 @@ class AccountPayment(models.Model):
     def autorizar_grupo3(self):
         for pay in self:
             pay.estado_autorizado = 'grupo3'
-            mensaje = "Autorizado por: " + str(self.env.user.name)
+            mensaje = "Autorizado y pagado por: " + str(self.env.user.name)
             self.message_post(partner_ids=False,body= mensaje, subject="Autorizacion", email_from=False)
 
             # 1) Si el pago está en borrador, postearlo
