@@ -274,6 +274,42 @@
                                     <td>SI( <t t-if="o.copy_supplier_check">✓</t> )</td>
                                     <td>NO( <t t-if="not o.copy_supplier_check">✓</t> )</td>
                                 </tr>
+
+                                <tr style="border:1px solid Transparent">
+                                    <td>Contrato con el proveedor adjunta</td>
+                                    <td>SI( <t t-if="o.supplier_contract_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.supplier_contract_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>CFDI o vista previa adjunta</td>
+                                    <td>SI( <t t-if="o.cfdi_preview_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.cfdi_preview_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Correos electrónicos</td>
+                                    <td>SI( <t t-if="o.emails_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.emails_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Contrato de licitación con el cliente adjunto</td>
+                                    <td>SI( <t t-if="o.tender_contract_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.tender_contract_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Evidencia de la operación (fotos y recepción de bienes y servicios) adjunta</td>
+                                    <td>SI( <t t-if="o.operation_evidence_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.operation_evidence_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Dossier de calidad</td>
+                                    <td>SI( <t t-if="o.quality_dossier_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.quality_dossier_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Cédula profesional por servicios profesionales</td>
+                                    <td>SI( <t t-if="o.professional_license_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.professional_license_check">✓</t> )</td>
+                                </tr>
                             </table>
                             <br/>
                             <table class="report-table">

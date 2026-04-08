@@ -245,7 +245,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <table style="width:70%; border:1px solid Transparent">
+                            <table style="width:75%; border:1px solid Transparent">
                                 <tr style="border:1px solid Transparent">
                                     <td>Attached Provider Proposal</td>
                                     <td>YES( <t t-if="o.supplier_proposal_check">✓</t> )</td>
@@ -280,6 +280,42 @@
                                     <td>Copy of the supplier's registration with REPSE attached</td>
                                     <td>YES( <t t-if="o.copy_supplier_check">✓</t> )</td>
                                     <td>NO( <t t-if="not o.copy_supplier_check">✓</t> )</td>
+                                </tr>
+
+                                <tr style="border:1px solid Transparent">
+                                    <td>Contract with the supplier attached</td>
+                                    <td>YES( <t t-if="o.supplier_contract_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.supplier_contract_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>CFDI or preview attached</td>
+                                    <td>YES( <t t-if="o.cfdi_preview_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.cfdi_preview_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Emails</td>
+                                    <td>YES( <t t-if="o.emails_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.emails_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Bidding contract with the client attached</td>
+                                    <td>YES( <t t-if="o.tender_contract_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.tender_contract_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Evidence of the transaction (photos and receipt of goods and services) attached</td>
+                                    <td>YES( <t t-if="o.operation_evidence_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.operation_evidence_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Quality dossierd</td>
+                                    <td>YES( <t t-if="o.quality_dossier_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.quality_dossier_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Professional license</td>
+                                    <td>YES( <t t-if="o.professional_license_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.professional_license_check">✓</t> )</td>
                                 </tr>
                             </table>
                             <br/>
