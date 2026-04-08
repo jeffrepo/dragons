@@ -265,6 +265,16 @@
                                     <td>SI( <t t-if="o.commercial_quality_supplier_check">✓</t> )</td>
                                     <td>NO( <t t-if="not o.commercial_quality_supplier_check">✓</t> )</td>
                                 </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Acta de fallo adjunta</td>
+                                    <td>SI( <t t-if="o.attached_judment_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.attached_judment_check">✓</t> )</td>
+                                </tr>
+                                <tr style="border:1px solid Transparent">
+                                    <td>Copia de la inscripción del proveedor ante el REPSE adjunt</td>
+                                    <td>SI( <t t-if="o.copy_supplier_check">✓</t> )</td>
+                                    <td>NO( <t t-if="not o.copy_supplier_check">✓</t> )</td>
+                                </tr>
                             </table>
                             <br/>
                             <table class="report-table">
